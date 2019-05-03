@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>
-    English Challenge | User Profile</title>
+    English Challenge | Basic Mission</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -309,122 +309,86 @@ desired effect
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        User Profile
+     <h1>
+        Basic Mission Detail
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">User profile</li>
+        <li class="active">Basic Mission</li>
+        <li class="active">Basic Mission Detail</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content container-fluid">
-
       <div class="row">
-        <div class="col-md-3">
-          <!-- Profile Image -->
-          <div class="box box-primary">
-            <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="dist/img/user8-128x128.jpg" alt="User profile picture">
-
-              <h3 class="profile-username text-center">TrungBaDaoQN</h3>
-              <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <b>Level</b> <a class="pull-right">15</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Exp</b> <a class="pull-right">3.564.755</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Coin</b> <a class="pull-right">13.287</a>
-                </li>
-              </ul>
-
-              <a href="#" class="btn btn-primary btn-block"><b>Upload avatar</b></a>
+        <div class="box box-primary">
+           <div class="box-body">
+            <div class="col-md-12">
+                <h4>Learn 5 vocabularies</h4>
+                <span><b>Question 1/5:</b></span>
+                <h5>Choose vocabulary describing the following picture:</h5>
+                <div class="col-sm-12">
+                  <div class="col-sm-3">
+                  </div>
+                  <div class="col-sm-6">
+                    <img class="img-responsive text-center" src="dist/img/photo1.png" alt="Photo">
+                  </div>
+                </div>
+                <h5>Choose the best answer:</h5>
+                <div class="row col-sm-12">
+                  <div class="col-sm-3">
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group text-left">
+                      <label>
+                        <input type="radio" name="r3" class="flat-red" checked>
+                        Home
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group text-left">
+                      <label>
+                        <input type="radio" name="r3" class="flat-red" checked>
+                        Sun
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row col-sm-12">
+                  <div class="col-sm-3">
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group text-left">
+                      <label>
+                        <input type="radio" name="r3" class="flat-red" checked>
+                        Tower
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group text-left">
+                      <label>
+                        <input type="radio" name="r3" class="flat-red" checked>
+                        Street
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-12 text-center">
+                    <button type="submit" class="btn btn-danger">Submit</button>
+                  </div>
+                </div>
             </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+           </div>
         </div>
-        <!-- /.col -->
-        <div class="col-md-9">
-          <div class="box box-primary">
-              <div class="box-body box-profile">
-                <form class="form-horizontal">
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Fullname</label>
-
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputName" placeholder="Nguyễn Chí Trung">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputEmail" placeholder="account@gmail.com">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Mobile Phone</label>
-
-                    <div class="col-sm-10">
-                      <input type="number" class="form-control" id="inputName" placeholder="0365293553">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputExperience" class="col-sm-2 control-label">Favorite Quotes</label>
-
-                    <div class="col-sm-10">
-                      <textarea class="form-control" id="inputExperience" placeholder="Write once, Run anywhere"></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="country" class="col-sm-2 control-label">Country</label>
-
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="country" placeholder="Viet Nam">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="birthday" class="col-sm-2 control-label">Birthday</label>
-
-                    <div class="col-sm-10">
-                      <input type="date" class="form-control" id="birthday" placeholder="22/04/1997">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                  	<label for="gender" class="col-sm-2 control-label">Gender</label>
-                    <div class="col-sm-offset-2 col-sm-10">
-	                    <div class="radio">
-                    		<label>
-                      			<input type="radio" name="optionsRadios" id="gender" value="option1" checked>
-                      			Male
-                   			</label>
-                  		</div>
-                 		<div class="radio">
-                    		<label>
-                      			<input type="radio" name="optionsRadios" id="gender" value="option2">
-                     			Female
-                   			</label>
-                  		</div>
-                  	</div>
-              	  </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-danger">Submit</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            <!-- /.tab-content -->
-          </div>
-          <!-- /.nav-tabs-custom -->
-        </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
