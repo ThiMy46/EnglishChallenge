@@ -26,7 +26,7 @@ public class Challenge implements Serializable {
 
 	//bi-directional many-to-one association to Challengequestion
 	@OneToMany(mappedBy="challenge")
-	private List<Challengequestion> challengequestions;
+	private List<ChallengeQuestion> challengequestions;
 
 	//bi-directional many-to-one association to Team
 	@OneToMany(mappedBy="challenge")
@@ -67,22 +67,22 @@ public class Challenge implements Serializable {
 		this.typeChallenge = typeChallenge;
 	}
 
-	public List<Challengequestion> getChallengequestions() {
+	public List<ChallengeQuestion> getChallengequestions() {
 		return this.challengequestions;
 	}
 
-	public void setChallengequestions(List<Challengequestion> challengequestions) {
+	public void setChallengequestions(List<ChallengeQuestion> challengequestions) {
 		this.challengequestions = challengequestions;
 	}
 
-	public Challengequestion addChallengequestion(Challengequestion challengequestion) {
+	public ChallengeQuestion addChallengequestion(ChallengeQuestion challengequestion) {
 		getChallengequestions().add(challengequestion);
 		challengequestion.setChallenge(this);
 
 		return challengequestion;
 	}
 
-	public Challengequestion removeChallengequestion(Challengequestion challengequestion) {
+	public ChallengeQuestion removeChallengequestion(ChallengeQuestion challengequestion) {
 		getChallengequestions().remove(challengequestion);
 		challengequestion.setChallenge(null);
 

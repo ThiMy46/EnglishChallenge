@@ -39,7 +39,7 @@ public class UserInfo implements Serializable {
 	private String phone;
 
 	@OneToMany(mappedBy="userinfo")
-	private List<Jointeam> jointeams;
+	private List<JoinTeam> jointeams;
 
 	@OneToMany(mappedBy="userinfo1")
 	private List<UserChat> userchats1;
@@ -145,22 +145,22 @@ public class UserInfo implements Serializable {
 		this.phone = phone;
 	}
 
-	public List<Jointeam> getJointeams() {
+	public List<JoinTeam> getJointeams() {
 		return this.jointeams;
 	}
 
-	public void setJointeams(List<Jointeam> jointeams) {
+	public void setJointeams(List<JoinTeam> jointeams) {
 		this.jointeams = jointeams;
 	}
 
-	public Jointeam addJointeam(Jointeam jointeam) {
+	public JoinTeam addJointeam(JoinTeam jointeam) {
 		getJointeams().add(jointeam);
 		jointeam.setUserinfo(this);
 
 		return jointeam;
 	}
 
-	public Jointeam removeJointeam(Jointeam jointeam) {
+	public JoinTeam removeJointeam(JoinTeam jointeam) {
 		getJointeams().remove(jointeam);
 		jointeam.setUserinfo(null);
 

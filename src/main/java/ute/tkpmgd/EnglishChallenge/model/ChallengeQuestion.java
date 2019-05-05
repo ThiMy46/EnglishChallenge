@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Entity
 @Table(name="challengequestion")
-public class Challengequestion implements Serializable {
+public class ChallengeQuestion implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -32,7 +32,7 @@ public class Challengequestion implements Serializable {
 	@OneToMany(mappedBy="challengequestion")
 	private List<TeamAnswer> teamanswers;
 
-	public Challengequestion() {
+	public ChallengeQuestion() {
 	}
 
 	public int getIdChallengeQuestion() {

@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="jointeam")
-public class Jointeam implements Serializable {
+public class JoinTeam implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -31,7 +31,7 @@ public class Jointeam implements Serializable {
 	@JoinColumn(name="idUser")
 	private UserInfo userinfo;
 
-	public Jointeam() {
+	public JoinTeam() {
 	}
 
 	public int getIdJoinTeam() {

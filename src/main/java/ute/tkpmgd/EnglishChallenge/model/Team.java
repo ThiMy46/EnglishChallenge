@@ -26,7 +26,7 @@ public class Team implements Serializable {
 	private String nameTeam;
 
 	@OneToMany(mappedBy="team")
-	private List<Jointeam> jointeams;
+	private List<JoinTeam> jointeams;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idChallenge")
@@ -70,22 +70,22 @@ public class Team implements Serializable {
 		this.nameTeam = nameTeam;
 	}
 
-	public List<Jointeam> getJointeams() {
+	public List<JoinTeam> getJointeams() {
 		return this.jointeams;
 	}
 
-	public void setJointeams(List<Jointeam> jointeams) {
+	public void setJointeams(List<JoinTeam> jointeams) {
 		this.jointeams = jointeams;
 	}
 
-	public Jointeam addJointeam(Jointeam jointeam) {
+	public JoinTeam addJointeam(JoinTeam jointeam) {
 		getJointeams().add(jointeam);
 		jointeam.setTeam(this);
 
 		return jointeam;
 	}
 
-	public Jointeam removeJointeam(Jointeam jointeam) {
+	public JoinTeam removeJointeam(JoinTeam jointeam) {
 		getJointeams().remove(jointeam);
 		jointeam.setTeam(null);
 

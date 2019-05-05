@@ -10,7 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Question.findAll", query="SELECT q FROM Question q")
+@Table(name="question")
 public class Question implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -32,7 +32,7 @@ public class Question implements Serializable {
 
 	//bi-directional many-to-one association to Challengequestion
 	@OneToMany(mappedBy="question")
-	private List<Challengequestion> challengequestions;
+	private List<ChallengeQuestion> challengequestions;
 
 	//bi-directional many-to-one association to Mission
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -96,22 +96,22 @@ public class Question implements Serializable {
 		return answer;
 	}
 
-	public List<Challengequestion> getChallengequestions() {
+	public List<ChallengeQuestion> getChallengequestions() {
 		return this.challengequestions;
 	}
 
-	public void setChallengequestions(List<Challengequestion> challengequestions) {
+	public void setChallengequestions(List<ChallengeQuestion> challengequestions) {
 		this.challengequestions = challengequestions;
 	}
 
-	public Challengequestion addChallengequestion(Challengequestion challengequestion) {
+	public ChallengeQuestion addChallengequestion(ChallengeQuestion challengequestion) {
 		getChallengequestions().add(challengequestion);
 		challengequestion.setQuestion(this);
 
 		return challengequestion;
 	}
 
-	public Challengequestion removeChallengequestion(Challengequestion challengequestion) {
+	public ChallengeQuestion removeChallengequestion(ChallengeQuestion challengequestion) {
 		getChallengequestions().remove(challengequestion);
 		challengequestion.setQuestion(null);
 

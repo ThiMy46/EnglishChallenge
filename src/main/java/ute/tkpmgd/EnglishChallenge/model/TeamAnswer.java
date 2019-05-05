@@ -23,7 +23,7 @@ public class TeamAnswer implements Serializable {
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idChallengeQuestion")
-	private Challengequestion challengequestion;
+	private ChallengeQuestion challengequestion;
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idTeam")
@@ -56,11 +56,11 @@ public class TeamAnswer implements Serializable {
 		this.time = time;
 	}
 
-	public Challengequestion getChallengequestion() {
+	public ChallengeQuestion getChallengequestion() {
 		return this.challengequestion;
 	}
 
-	public void setChallengequestion(Challengequestion challengequestion) {
+	public void setChallengequestion(ChallengeQuestion challengequestion) {
 		this.challengequestion = challengequestion;
 	}
 
