@@ -1,4 +1,4 @@
-package english;
+package ute.tkpmgd.EnglishChallenge.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -10,7 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Challenge.findAll", query="SELECT c FROM Challenge c")
+@Table(name="challenge")
 public class Challenge implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -22,7 +22,7 @@ public class Challenge implements Serializable {
 
 	private int level;
 
-	private byte[] typeChallenge;
+	private boolean typeChallenge;
 
 	//bi-directional many-to-one association to Challengequestion
 	@OneToMany(mappedBy="challenge")
@@ -59,11 +59,11 @@ public class Challenge implements Serializable {
 		this.level = level;
 	}
 
-	public byte[] getTypeChallenge() {
+	public boolean getTypeChallenge() {
 		return this.typeChallenge;
 	}
 
-	public void setTypeChallenge(byte[] typeChallenge) {
+	public void setTypeChallenge(boolean typeChallenge) {
 		this.typeChallenge = typeChallenge;
 	}
 

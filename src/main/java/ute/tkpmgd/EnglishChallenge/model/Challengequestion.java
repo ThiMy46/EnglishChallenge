@@ -1,4 +1,4 @@
-package english;
+package ute.tkpmgd.EnglishChallenge.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -10,7 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Challengequestion.findAll", query="SELECT c FROM Challengequestion c")
+@Table(name="challengequestion")
 public class Challengequestion implements Serializable {
 	private static final long serialVersionUID = 1L;
 
