@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="fragments/layout">
+<head>
+  <title>
+    English Challenge | Đấu Đơn</title>
+</head>
+<body>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" layout:fragment="content">
+<!-- Content Header (Page header) -->
+    <section class="content-header">
+     <h1>
+        Thách đấu đơn
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+        <li class="active">Thách đấu</li>
+        <li class="active">Thách đấu đơn</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+      <div class="row" style="margin:auto;">
+        <div class="box box-primary">
+      		<div class="col-md-4 callout callout-success">
+      		<ul class="products-list product-list-in-box" style="margin: 0 auto;">
+      			<li class="item" style="background:inherit">
+                      <div class="text-center">
+                        <span class="label label-warning pull-left">EXP 20%</span>
+                      </div>
+                      <div class="product-img" style="margin-left: 20px;">
+                        <img th:src="@{/resources/dist/img/user8-128x128.jpg}" alt="User Image">
+                      </div>
+                      <div class="product-info">
+                        <span class="product-description" style="color:#fff">
+                          Viết Thanh - Level 30
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
+      		</div>
+      		<div class="col-md-4" style="position:relative" >
+      		<img th:src="@{/resources/dist/img/vs.jpg}" alt="VS" height="100px" width="100%">
+      		<h3 id="time" style="position:absolute; top:50%; left:43%; color:red;">15:15</h3>
+      		</div>
+      		<div class="col-md-4 callout callout-danger">
+      		<ul class="products-list product-list-in-box" style="margin: 0 auto;">
+      			<li class="item" style="background:inherit">
+                      <div class="text-center">
+                        <span class="label label-warning pull-left">EXP 15%</span>
+                      </div>
+                      <div class="product-img" style="margin-left: 20px;">
+                        <img th:src="@{/resources/dist/img/user5-128x128.jpg}" alt="User Image">
+                      </div>
+                      <div class="product-info">
+                        <span class="product-description" style="color:#fff">
+                          Như Ý - Level 35
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
+      		</div>
+      	</div>
+      </div>
+      <div class="row" style="margin:auto">
+        <div class="box box-primary">
+           <div class="box-body">
+            <div class="col-md-12">
+                <h4>Thách đấu từ vựng</h4>
+                <span><b>Câu hỏi 1/5:</b></span>
+                <h5>Chọn từ vựng mô tả hình ảnh sau đây:</h5>
+                <div class="col-sm-12">
+                  <div class="col-sm-3">
+                  </div>
+                  <div class="col-sm-6">
+                    <img class="img-responsive text-center" th:src="@{/resources/dist/img/photo1.png}"alt="Photo">
+                  </div>
+                </div>
+                <h5>Hãy chọn đáp án đúng nhất:</h5>
+                <div class="row col-sm-12">
+                  <div class="col-sm-3">
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group text-left">
+                      <label>
+                        <input type="radio" name="r3" class="flat-red" checked>
+                        Home
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group text-left">
+                      <label>
+                        <input type="radio" name="r3" class="flat-red" checked>
+                        Sun
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row col-sm-12">
+                  <div class="col-sm-3">
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group text-left">
+                      <label>
+                        <input type="radio" name="r3" class="flat-red" checked>
+                        Tower
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group text-left">
+                      <label>
+                        <input type="radio" name="r3" class="flat-red" checked>
+                        Street
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-12 text-center">
+                    <button type="submit" class="btn btn-danger">Submit</button>
+                  </div>
+                </div>
+            </div>
+           </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+	<script>
+		var $time = document.getElementById("time");
+		var countTime = 600;
+		var textTime = formatNum(parseInt(countTime/60)) + ":" + formatNum(countTime%60);
+		$time.innerText = textTime;
+		var count = setInterval(frame, 1000);
+		
+		function frame(){ 
+			countTime--;
+			if(countTime <= 0 ){
+				$time.innerText = "OVER";
+				clearInterval(count);
+			} else {
+			    textTime = formatNum(parseInt(countTime/60)) + ":" + formatNum(countTime%60);
+			    $time.innerText = textTime;
+			}
+		}
+		function formatNum(num){
+			if(num < 10)
+				return "0" + num;
+			return num;
+		}
+	</script>
+  </div>
+  <!-- /.content-wrapper -->
+</body>
+</html>

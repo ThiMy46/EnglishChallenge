@@ -11,3 +11,7 @@
 .control-sidebar-menu .user-panel>.info>p{
 	font-weight: 400 !important;
 }
+
+.control-sidebar-menu>li>a{
+	padding:0;
+}
