@@ -1,0 +1,13 @@
+.content-wrapper, .main-footer{
+    margin-right: 230px !important;
+}
+.control-sidebar-menu .user-panel>.image>img{
+	max-width: 30px !important;
+}
+.control-sidebar-menu .user-panel>.info{
+	padding: 0px 0px 5px 10px !important;
+}
+
+.control-sidebar-menu .user-panel>.info>p{
+	font-weight: 400 !important;
+}
