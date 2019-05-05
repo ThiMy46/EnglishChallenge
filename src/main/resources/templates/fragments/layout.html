@@ -1,30 +1,27 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" 
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>
-    English Challenge | Basic Mission</title>
+    English Challenge | Home</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{/resources/bower_components/bootstrap/dist/css/bootstrap.min.css}">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" th:href="@{/resources/bower_components/font-awesome/css/font-awesome.min.css}">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" th:href="@{/resources/bower_components/Ionicons/css/ionicons.min.css}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" th:href="@{/resources/dist/css/AdminLTE.min.css}">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" th:href="@{/resources/dist/css/skins/skin-blue.min.css}">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!-- HTML5 Shim and Respond.js} IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js} doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -33,6 +30,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <style type="text/css">
+    .products-list>li img{
+      border-radius: 50%;
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -61,7 +65,7 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a th:href="@{/index2.html}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
@@ -93,7 +97,7 @@ desired effect
                     <a href="#">
                       <div class="pull-left">
                         <!-- User Image -->
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img th:src="@{/resources/dist/img/user2-160x160.jpg}" class="img-circle" alt="User Image">
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -178,14 +182,14 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img th:src="@{/resources/dist/img/user2-160x160.jpg}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">Viết Thanh</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img th:src="@{/resources/dist/img/user2-160x160.jpg}" class="img-circle" alt="User Image">
 
                 <p>
                   Alexander Pierce - Web Developer
@@ -235,7 +239,7 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img th:src="@{/resources/dist/img/user2-160x160.jpg}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Viết Thanh</p>
@@ -268,8 +272,8 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="index.html"><i class="fa fa-circle-o"></i> Nhiệm Vụ Cơ Bản</a></li>
-            <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Nhiệm Vụ Nâng Cao</a></li>
+            <li><a th:href="index.html"><i class="fa fa-circle-o"></i> Nhiệm Vụ Cơ Bản</a></li>
+            <li class="active"><a th:href="index2.html"><i class="fa fa-circle-o"></i> Nhiệm Vụ Nâng Cao</a></li>
             
           </ul>
         </li>
@@ -282,8 +286,8 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Thách Đấu Đơn</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Thách Đấu Đôi</a></li>
+            <li><a th:href="@{/singleChallenge}"><i class="fa fa-circle-o"></i> Thách Đấu Đơn</a></li>
+            <li><a th:href="@{/doubleChallenge}"><i class="fa fa-circle-o"></i> Thách Đấu Đôi</a></li>
             
           </ul>
         </li>
@@ -306,69 +310,7 @@ desired effect
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-     <h1>
-        Basic Mission
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Basic Mission</li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
-    <section class="content container-fluid">
-      <div class="row">
-        <div class="box box-primary">
-           <div class="box-body">
-            <div class="col-md-12">
-                  <h3 class="text-center">List Mission</h3>
-                  
-                  <div class="progress-group">
-                    <span class="progress-text"><a href="basicMissionDetail.html">Learn 5 vocabularies</a></span>
-                    <span class="progress-number"><b>1</b>/5</span>
-
-                    <div class="progress sm">
-                      <div class="progress-bar progress-bar-aqua" style="width: 20%"></div>
-                    </div>
-                  </div>
-                  <!-- /.progress-group -->
-                  <div class="progress-group">
-                    <span class="progress-text"><a href="#">Learn 5 grammars</a></span>
-                    <span class="progress-number"><b>2</b>/5</span>
-
-                    <div class="progress sm">
-                      <div class="progress-bar progress-bar-red" style="width: 40%"></div>
-                    </div>
-                  </div>
-                  <!-- /.progress-group -->
-                  <div class="progress-group">
-                    <span class="progress-text"><a href="">Listen to 2 conversations and answer questions</a></span>
-                    <span class="progress-number"><b>2</b>/2</span>
-
-                    <div class="progress sm">
-                      <div class="progress-bar progress-bar-green" style="width: 100%"></div>
-                    </div>
-                  </div>
-                  <!-- /.progress-group -->
-                  <div class="progress-group">
-                    <span class="progress-text"><a href="">Read 2 the articles and answer questions</a></span>
-                    <span class="progress-number"><b>1</b>/2</span>
-
-                    <div class="progress sm">
-                      <div class="progress-bar progress-bar-yellow" style="width: 50%"></div>
-                    </div>
-                  </div>
-                  <!-- /.progress-group -->
-                </div>
-                <!-- /.col -->
-           </div>
-        </div>
-      </div>
-    </section>
-    <!-- /.content -->
+  <div class="content-wrapper" layout:fragment="content">
   </div>
   <!-- /.content-wrapper -->
 
@@ -379,15 +321,15 @@ desired effect
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2019 <a href="#">Company</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+      <li class="active"><a th:href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+      <li><a th:href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
@@ -396,7 +338,7 @@ desired effect
         <h3 class="control-sidebar-heading">Recent Activity</h3>
         <ul class="control-sidebar-menu">
           <li>
-            <a href="javascript:;">
+            <a th:href="javascript:;">
               <i class="menu-icon fa fa-birthday-cake bg-red"></i>
 
               <div class="menu-info">
@@ -412,7 +354,7 @@ desired effect
         <h3 class="control-sidebar-heading">Tasks Progress</h3>
         <ul class="control-sidebar-menu">
           <li>
-            <a href="javascript:;">
+            <a th:href="javascript:;">
               <h4 class="control-sidebar-subheading">
                 Custom Template Design
                 <span class="pull-right-container">
@@ -464,14 +406,61 @@ desired effect
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 3 -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script th:src="@{/resources/bower_components/jquery/dist/jquery.min.js}"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script th:src="@{/resources/bower_components/bootstrap/dist/js/bootstrap.min.js}"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+<script th:src="@{/resources/dist/js/adminlte.min.js}"></script>
+<!-- FLOT CHARTS -->
+<script th:src="@{/resources/bower_components/Flot/jquery.flot.js}"></script>
+<!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+<script th:src="@{/resources/bower_components/Flot/jquery.flot.resize.js}"></script>
+<!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
+<script th:src="@{/resources/bower_components/Flot/jquery.flot.categories.js}"></script>
+<!-- Page script -->
+<script>
+  $(function () {
+    /*
+     * BAR CHART
+     * ---------
+     */
 
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. -->
+    var bar_data = {
+      data : [['January', 10], ['February', 8], ['March', 4], ['April', 13], ['May', 17], ['June', 9]],
+      color: '#3c8dbc'
+    }
+    $.plot('#bar-chart', [bar_data], {
+      grid  : {
+        borderWidth: 1,
+        borderColor: '#f3f3f3',
+        tickColor  : '#f3f3f3'
+      },
+      series: {
+        bars: {
+          show    : true,
+          barWidth: 0.5,
+          align   : 'center'
+        }
+      },
+      xaxis : {
+        mode      : 'categories',
+        tickLength: 0
+      }
+    })
+    /* END BAR CHART */
+
+  })
+
+  /*
+   * Custom Label formatter
+   * ----------------------
+   */
+  function labelFormatter(label, series) {
+    return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">'
+      + label
+      + '<br>'
+      + Math.round(series.percent) + '%</div>'
+  }
+</script>
 </body>
 </html>
