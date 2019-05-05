@@ -60,4 +60,9 @@ public class MainController {
 	public String userProfile() {
 		return "userProfile";
 	}
+	
+	@RequestMapping("/singleChallenge")
+	public String singleChallenge() {
+		return "singleChallenge";
+	}
 }

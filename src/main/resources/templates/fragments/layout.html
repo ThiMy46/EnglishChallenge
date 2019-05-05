@@ -18,9 +18,12 @@ xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 
   <link rel="stylesheet" th:href="@{/resources/dist/css/skins/skin-blue.min.css}">
   
-<!-- Custom list friend, right home -->
+  <!-- Custom list friend, right home -->
   <link rel="stylesheet" th:href="@{/resources/custom/css/listfriendhome.css}">
-
+   	
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" th:href="@{/resources/bower_components/sweetalert2/sweetalert2.min.css}">
+  
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -365,7 +368,8 @@ xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 <script th:src="@{/resources/bower_components/Flot/jquery.flot.resize.js}"></script>
 <!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
 <script th:src="@{/resources/bower_components/Flot/jquery.flot.categories.js}"></script>
-
+<!-- SweetAlert2 -->
+<script th:src="@{/resources/bower_components/sweetalert2/sweetalert2.min.js}"></script>
 <script th:src="@{/resources/custom/js/mission.js}"></script>
 <!-- Page script -->
 <script>
