@@ -1,4 +1,4 @@
-package english;
+package ute.tkpmgd.EnglishChallenge.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -9,7 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Jointeam.findAll", query="SELECT j FROM Jointeam j")
+@Table(name="jointeam")
 public class Jointeam implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -17,9 +17,9 @@ public class Jointeam implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idJoinTeam;
 
-	private byte[] lead;
+	private boolean lead;
 
-	private byte[] ready;
+	private boolean ready;
 
 	//bi-directional many-to-one association to Team
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -42,19 +42,19 @@ public class Jointeam implements Serializable {
 		this.idJoinTeam = idJoinTeam;
 	}
 
-	public byte[] getLead() {
+	public boolean getLead() {
 		return this.lead;
 	}
 
-	public void setLead(byte[] lead) {
+	public void setLead(boolean lead) {
 		this.lead = lead;
 	}
 
-	public byte[] getReady() {
+	public boolean getReady() {
 		return this.ready;
 	}
 
-	public void setReady(byte[] ready) {
+	public void setReady(boolean ready) {
 		this.ready = ready;
 	}
 

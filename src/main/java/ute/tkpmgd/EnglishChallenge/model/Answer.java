@@ -1,4 +1,4 @@
-package english;
+package ute.tkpmgd.EnglishChallenge.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -9,7 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Answer.findAll", query="SELECT a FROM Answer a")
+@Table(name="answer")
 public class Answer implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -18,7 +18,7 @@ public class Answer implements Serializable {
 	private int idAnswer;
 
 	@Column(name="in_correct")
-	private byte[] inCorrect;
+	private boolean inCorrect;
 
 	@Lob
 	private String textAnswer;
@@ -39,11 +39,11 @@ public class Answer implements Serializable {
 		this.idAnswer = idAnswer;
 	}
 
-	public byte[] getInCorrect() {
+	public boolean getInCorrect() {
 		return this.inCorrect;
 	}
 
-	public void setInCorrect(byte[] inCorrect) {
+	public void setInCorrect(boolean inCorrect) {
 		this.inCorrect = inCorrect;
 	}
 
