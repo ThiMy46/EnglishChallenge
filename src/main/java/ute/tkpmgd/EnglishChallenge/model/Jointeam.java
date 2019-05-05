@@ -29,7 +29,7 @@ public class Jointeam implements Serializable {
 	//bi-directional many-to-one association to Userinfo
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idUser")
-	private Userinfo userinfo;
+	private UserInfo userinfo;
 
 	public Jointeam() {
 	}
@@ -66,11 +66,11 @@ public class Jointeam implements Serializable {
 		this.team = team;
 	}
 
-	public Userinfo getUserinfo() {
+	public UserInfo getUserinfo() {
 		return this.userinfo;
 	}
 
-	public void setUserinfo(Userinfo userinfo) {
+	public void setUserinfo(UserInfo userinfo) {
 		this.userinfo = userinfo;
 	}
 

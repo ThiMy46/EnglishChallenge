@@ -1,4 +1,4 @@
-package english;
+package ute.tkpmgd.EnglishChallenge.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -9,8 +9,8 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Teamanswer.findAll", query="SELECT t FROM Teamanswer t")
-public class Teamanswer implements Serializable {
+@Table(name="teamanswer")
+public class TeamAnswer implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -21,17 +21,15 @@ public class Teamanswer implements Serializable {
 
 	private String time;
 
-	//bi-directional many-to-one association to Challengequestion
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idChallengeQuestion")
 	private Challengequestion challengequestion;
 
-	//bi-directional many-to-one association to Team
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idTeam")
 	private Team team;
 
-	public Teamanswer() {
+	public TeamAnswer() {
 	}
 
 	public int getIdTeamAnswer() {

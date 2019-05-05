@@ -30,7 +30,7 @@ public class Challengequestion implements Serializable {
 
 	//bi-directional many-to-one association to Teamanswer
 	@OneToMany(mappedBy="challengequestion")
-	private List<Teamanswer> teamanswers;
+	private List<TeamAnswer> teamanswers;
 
 	public Challengequestion() {
 	}
@@ -59,22 +59,22 @@ public class Challengequestion implements Serializable {
 		this.question = question;
 	}
 
-	public List<Teamanswer> getTeamanswers() {
+	public List<TeamAnswer> getTeamanswers() {
 		return this.teamanswers;
 	}
 
-	public void setTeamanswers(List<Teamanswer> teamanswers) {
+	public void setTeamanswers(List<TeamAnswer> teamanswers) {
 		this.teamanswers = teamanswers;
 	}
 
-	public Teamanswer addTeamanswer(Teamanswer teamanswer) {
+	public TeamAnswer addTeamanswer(TeamAnswer teamanswer) {
 		getTeamanswers().add(teamanswer);
 		teamanswer.setChallengequestion(this);
 
 		return teamanswer;
 	}
 
-	public Teamanswer removeTeamanswer(Teamanswer teamanswer) {
+	public TeamAnswer removeTeamanswer(TeamAnswer teamanswer) {
 		getTeamanswers().remove(teamanswer);
 		teamanswer.setChallengequestion(null);
 

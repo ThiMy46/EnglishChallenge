@@ -32,7 +32,7 @@ public class Mission implements Serializable {
 
 	//bi-directional many-to-one association to Usermission
 	@OneToMany(mappedBy="mission")
-	private List<Usermission> usermissions;
+	private List<UserMission> usermissions;
 
 	public Mission() {
 	}
@@ -99,22 +99,22 @@ public class Mission implements Serializable {
 		return question;
 	}
 
-	public List<Usermission> getUsermissions() {
+	public List<UserMission> getUsermissions() {
 		return this.usermissions;
 	}
 
-	public void setUsermissions(List<Usermission> usermissions) {
+	public void setUsermissions(List<UserMission> usermissions) {
 		this.usermissions = usermissions;
 	}
 
-	public Usermission addUsermission(Usermission usermission) {
+	public UserMission addUsermission(UserMission usermission) {
 		getUsermissions().add(usermission);
 		usermission.setMission(this);
 
 		return usermission;
 	}
 
-	public Usermission removeUsermission(Usermission usermission) {
+	public UserMission removeUsermission(UserMission usermission) {
 		getUsermissions().remove(usermission);
 		usermission.setMission(null);
 

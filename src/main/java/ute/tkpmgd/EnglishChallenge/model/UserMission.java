@@ -1,4 +1,4 @@
-package english;
+package ute.tkpmgd.EnglishChallenge.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -9,8 +9,8 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Usermission.findAll", query="SELECT u FROM Usermission u")
-public class Usermission implements Serializable {
+@Table(name="usermission")
+public class UserMission implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -21,17 +21,15 @@ public class Usermission implements Serializable {
 
 	private int state;
 
-	//bi-directional many-to-one association to Mission
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idMission")
 	private Mission mission;
 
-	//bi-directional many-to-one association to Userinfo
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idUser")
-	private Userinfo userinfo;
+	private UserInfo userinfo;
 
-	public Usermission() {
+	public UserMission() {
 	}
 
 	public int getIdUserMission() {
@@ -66,11 +64,11 @@ public class Usermission implements Serializable {
 		this.mission = mission;
 	}
 
-	public Userinfo getUserinfo() {
+	public UserInfo getUserinfo() {
 		return this.userinfo;
 	}
 
-	public void setUserinfo(Userinfo userinfo) {
+	public void setUserinfo(UserInfo userinfo) {
 		this.userinfo = userinfo;
 	}
 

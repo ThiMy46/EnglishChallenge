@@ -1,4 +1,4 @@
-package english;
+package ute.tkpmgd.EnglishChallenge.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -9,7 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
+@Table(name="user")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -23,9 +23,8 @@ public class User implements Serializable {
 
 	private String username;
 
-	//bi-directional one-to-one association to Userinfo
 	@OneToOne(mappedBy="user", fetch=FetchType.LAZY)
-	private Userinfo userinfo;
+	private UserInfo userinfo;
 
 	public User() {
 	}
@@ -62,11 +61,11 @@ public class User implements Serializable {
 		this.username = username;
 	}
 
-	public Userinfo getUserinfo() {
+	public UserInfo getUserinfo() {
 		return this.userinfo;
 	}
 
-	public void setUserinfo(Userinfo userinfo) {
+	public void setUserinfo(UserInfo userinfo) {
 		this.userinfo = userinfo;
 	}
 

@@ -1,4 +1,4 @@
-package english;
+package ute.tkpmgd.EnglishChallenge.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -9,8 +9,8 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Userchat.findAll", query="SELECT u FROM Userchat u")
-public class Userchat implements Serializable {
+@Table(name="userchat")
+public class UserChat implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -21,17 +21,15 @@ public class Userchat implements Serializable {
 
 	private String time;
 
-	//bi-directional many-to-one association to Userinfo
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idUserReceive")
-	private Userinfo userinfo1;
+	private UserInfo userinfo1;
 
-	//bi-directional many-to-one association to Userinfo
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idUserSend")
-	private Userinfo userinfo2;
+	private UserInfo userinfo2;
 
-	public Userchat() {
+	public UserChat() {
 	}
 
 	public int getIdUserChat() {
@@ -58,19 +56,19 @@ public class Userchat implements Serializable {
 		this.time = time;
 	}
 
-	public Userinfo getUserinfo1() {
+	public UserInfo getUserinfo1() {
 		return this.userinfo1;
 	}
 
-	public void setUserinfo1(Userinfo userinfo1) {
+	public void setUserinfo1(UserInfo userinfo1) {
 		this.userinfo1 = userinfo1;
 	}
 
-	public Userinfo getUserinfo2() {
+	public UserInfo getUserinfo2() {
 		return this.userinfo2;
 	}
 
-	public void setUserinfo2(Userinfo userinfo2) {
+	public void setUserinfo2(UserInfo userinfo2) {
 		this.userinfo2 = userinfo2;
 	}
 

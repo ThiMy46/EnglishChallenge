@@ -1,4 +1,4 @@
-package english;
+package ute.tkpmgd.EnglishChallenge.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -10,7 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Team.findAll", query="SELECT t FROM Team t")
+@Table(name="team")
 public class Team implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -19,24 +19,21 @@ public class Team implements Serializable {
 	private int idTeam;
 
 	@Column(name="in_match")
-	private byte[] inMatch;
+	private boolean inMatch;
 
 	private int level;
 
 	private String nameTeam;
 
-	//bi-directional many-to-one association to Jointeam
 	@OneToMany(mappedBy="team")
 	private List<Jointeam> jointeams;
-
-	//bi-directional many-to-one association to Challenge
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idChallenge")
 	private Challenge challenge;
 
-	//bi-directional many-to-one association to Teamanswer
 	@OneToMany(mappedBy="team")
-	private List<Teamanswer> teamanswers;
+	private List<TeamAnswer> teamanswers;
 
 	public Team() {
 	}
@@ -49,11 +46,11 @@ public class Team implements Serializable {
 		this.idTeam = idTeam;
 	}
 
-	public byte[] getInMatch() {
+	public boolean getInMatch() {
 		return this.inMatch;
 	}
 
-	public void setInMatch(byte[] inMatch) {
+	public void setInMatch(boolean inMatch) {
 		this.inMatch = inMatch;
 	}
 
@@ -103,22 +100,22 @@ public class Team implements Serializable {
 		this.challenge = challenge;
 	}
 
-	public List<Teamanswer> getTeamanswers() {
+	public List<TeamAnswer> getTeamanswers() {
 		return this.teamanswers;
 	}
 
-	public void setTeamanswers(List<Teamanswer> teamanswers) {
+	public void setTeamanswers(List<TeamAnswer> teamanswers) {
 		this.teamanswers = teamanswers;
 	}
 
-	public Teamanswer addTeamanswer(Teamanswer teamanswer) {
+	public TeamAnswer addTeamanswer(TeamAnswer teamanswer) {
 		getTeamanswers().add(teamanswer);
 		teamanswer.setTeam(this);
 
 		return teamanswer;
 	}
 
-	public Teamanswer removeTeamanswer(Teamanswer teamanswer) {
+	public TeamAnswer removeTeamanswer(TeamAnswer teamanswer) {
 		getTeamanswers().remove(teamanswer);
 		teamanswer.setTeam(null);
 
