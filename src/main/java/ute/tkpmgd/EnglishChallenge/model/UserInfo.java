@@ -15,8 +15,8 @@ public class UserInfo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int idUser;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int idUserInfo;
 
 	private boolean active;
 
@@ -47,9 +47,11 @@ public class UserInfo implements Serializable {
 	@OneToMany(mappedBy="userinfo2")
 	private List<UserChat> userchats2;
 
-	@OneToOne(fetch=FetchType.LAZY)
+	//bi-directional many-to-one association to User
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idUser")
 	private User user;
+
 
 	@OneToMany(mappedBy="userinfo")
 	private List<UserMission> usermissions;
@@ -57,12 +59,12 @@ public class UserInfo implements Serializable {
 	public UserInfo() {
 	}
 
-	public int getIdUser() {
-		return this.idUser;
+	public int getIdUserInfo() {
+		return idUserInfo;
 	}
 
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
+	public void setIdUserInfo(int idUserInfo) {
+		this.idUserInfo = idUserInfo;
 	}
 
 	public boolean getActive() {

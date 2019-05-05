@@ -14,7 +14,7 @@ public class TeamAnswer implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idTeamAnswer;
 
 	private String answer;
