@@ -12,11 +12,11 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="fragme
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        User Profile
+        Thông tin cá nhân
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">User profile</li>
+        <li><a href="/"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+        <li class="active">Thông tin cá nhân</li>
       </ol>
     </section>
 
@@ -28,22 +28,23 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="fragme
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="dist/img/user8-128x128.jpg" alt="User profile picture">
+              <img class="profile-user-img img-responsive img-circle" th:src="@{/resources/dist/img/user8-128x128.jpg}" alt="User profile picture">
 
               <h3 class="profile-username text-center">TrungBaDaoQN</h3>
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
-                  <b>Level</b> <a class="pull-right">15</a>
+                  <b>Cấp độ</b> <a class="pull-right">15</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Exp</b> <a class="pull-right">3.564.755</a>
+                  <b>Kinh nghiệm</b> <a class="pull-right">3.564.755</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Coin</b> <a class="pull-right">13.287</a>
+                  <b>Xu</b> <a class="pull-right">13.287</a>
                 </li>
               </ul>
 
-              <a href="#" class="btn btn-primary btn-block"><b>Upload avatar</b></a>
+              <a href="#" class="btn btn-primary btn-block"><b>Đổi ảnh đại diện</b></a>
+              <a href="/changePassword" class="btn btn-primary btn-block"><b>Đổi mật khẩu</b></a>
             </div>
             <!-- /.box-body -->
           </div>
@@ -55,10 +56,10 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="fragme
               <div class="box-body box-profile">
                 <form class="form-horizontal">
                   <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Fullname</label>
+                    <label for="inputName" class="col-sm-2 control-label">Họ và tên</label>
 
                     <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputName" placeholder="Nguyễn Chí Trung">
+                      <input type="email" class="form-control" id="inputName" placeholder="Nguyễn Viết Thanh">
                     </div>
                   </div>
                   <div class="form-group">
@@ -69,53 +70,53 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="fragme
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Mobile Phone</label>
+                    <label for="inputName" class="col-sm-2 control-label">Số điện thoại</label>
 
                     <div class="col-sm-10">
                       <input type="number" class="form-control" id="inputName" placeholder="0365293553">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputExperience" class="col-sm-2 control-label">Favorite Quotes</label>
+                    <label for="inputExperience" class="col-sm-2 control-label">Câu nói ưu thích</label>
 
                     <div class="col-sm-10">
                       <textarea class="form-control" id="inputExperience" placeholder="Write once, Run anywhere"></textarea>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="country" class="col-sm-2 control-label">Country</label>
+                    <label for="country" class="col-sm-2 control-label">Quốc gia</label>
 
                     <div class="col-sm-10">
                       <input type="text" class="form-control" id="country" placeholder="Viet Nam">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="birthday" class="col-sm-2 control-label">Birthday</label>
+                    <label for="birthday" class="col-sm-2 control-label">Năm sinh</label>
 
                     <div class="col-sm-10">
                       <input type="date" class="form-control" id="birthday" placeholder="22/04/1997">
                     </div>
                   </div>
                   <div class="form-group">
-                  	<label for="gender" class="col-sm-2 control-label">Gender</label>
+                  	<label for="gender" class="col-sm-2 control-label">Giới tính</label>
                     <div class="col-sm-offset-2 col-sm-10">
 	                    <div class="radio">
                     		<label>
                       			<input type="radio" name="optionsRadios" id="gender" value="option1" checked>
-                      			Male
+                      			Nam
                    			</label>
                   		</div>
                  		<div class="radio">
                     		<label>
                       			<input type="radio" name="optionsRadios" id="gender" value="option2">
-                     			Female
+                     			Nữ
                    			</label>
                   		</div>
                   	</div>
               	  </div>
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-danger">Submit</button>
+                      <button type="submit" class="btn btn-danger">Cập nhật</button>
                     </div>
                   </div>
                 </form>
