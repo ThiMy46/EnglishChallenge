@@ -8,50 +8,55 @@ public class MainController {
 
 	@RequestMapping("/")
 	public String welcome() {
-		return "dashboard";
+		return "home";
 	}
 	
-	@RequestMapping("/basicMission.html")
+	@RequestMapping("/basicMission")
 	public String basicMission() {
 		return "basicMission";
 	}
 	
-	@RequestMapping("/advancedMission.html")
+	@RequestMapping("/advancedMission")
 	public String advancedMission() {
 		return "advancedMission";
 	}
 	
-	@RequestMapping("/basicMissionDetail.html")
+	@RequestMapping("/basicMissionDetail")
 	public String basicMissionDetail() {
 		return "basicMissionDetail";
 	}
 	
-	@RequestMapping("/changePassword.html")
+	@RequestMapping("/changePassword")
 	public String changePassword() {
 		return "changePassword";
 	}
 	
-	@RequestMapping("/forgotPassword.html")
+	@RequestMapping("/forgotPassword")
 	public String forgotPassword() {
 		return "forgotPassword";
 	}
 	
-	@RequestMapping("/home.html")
+	@RequestMapping("/home")
 	public String home() {
 		return "home";
 	}
 	
-	@RequestMapping("/login.html")
+	@RequestMapping("/login")
 	public String login() {
 		return "login";
 	}
 	
-	@RequestMapping("/register.html")
+	@RequestMapping("/logout")
+	public String logout() {
+		return "login";
+	}
+	
+	@RequestMapping("/register")
 	public String register() {
 		return "register";
 	}
 	
-	@RequestMapping("/userProfile.html")
+	@RequestMapping("/userProfile")
 	public String userProfile() {
 		return "userProfile";
 	}
