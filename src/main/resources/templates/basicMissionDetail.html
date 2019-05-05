@@ -1,99 +1,252 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" 
-xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="fragments/layout">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="fragments/layout">
 <head>
-  <title>
-    English Challenge | Basic Mission Detail</title>
+<title>English Challenge | Basic Mission Detail</title>
 </head>
 <body>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" layout:fragment="content">
-<!-- Content Header (Page header) -->
-    <section class="content-header">
-     <h1>
-        Chi tiết nhiệm vụ
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
-        <li class="active">Nhiệm vụ cơ bản</li>
-        <li class="active">Chi tiết nhiệm vụ</li>
-      </ol>
-    </section>
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper" layout:fragment="content">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<h1>Chi tiết nhiệm vụ</h1>
+			<ol class="breadcrumb">
+				<li><a href="#"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+				<li class="active">Nhiệm vụ cơ bản</li>
+				<li class="active">Chi tiết nhiệm vụ</li>
+			</ol>
+		</section>
 
-    <!-- Main content -->
-    <section class="content container-fluid">
-      <div class="row">
-        <div class="box box-primary">
-           <div class="box-body">
-            <div class="col-md-12">
-                <h4>Học 5 từ vựng</h4>
-                <span><b>Câu hỏi 1/5:</b></span>
-                <h5>Chọn từ vựng mô tả hình ảnh sau đây:</h5>
-                <div class="col-sm-12">
-                  <div class="col-sm-3">
-                  </div>
-                  <div class="col-sm-6">
-                    <img class="img-responsive text-center" th:src="@{/resources/dist/img/photo1.png}"alt="Photo">
-                  </div>
-                </div>
-                <h5>Hãy chọn đáp án đúng nhất:</h5>
-                <div class="row col-sm-12">
-                  <div class="col-sm-3">
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="form-group text-left">
-                      <label>
-                        <input type="radio" name="r3" class="flat-red" checked>
-                        Home
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-sm-3">
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="form-group text-left">
-                      <label>
-                        <input type="radio" name="r3" class="flat-red" checked>
-                        Sun
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="row col-sm-12">
-                  <div class="col-sm-3">
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="form-group text-left">
-                      <label>
-                        <input type="radio" name="r3" class="flat-red" checked>
-                        Tower
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-sm-3">
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="form-group text-left">
-                      <label>
-                        <input type="radio" name="r3" class="flat-red" checked>
-                        Street
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-sm-12 text-center">
-                    <button type="submit" class="btn btn-danger">Submit</button>
-                  </div>
-                </div>
-            </div>
-           </div>
-        </div>
-      </div>
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+		<!-- Main content -->
+		<section class="content container-fluid">
+			<div class="row">
+				<div class="box box-primary">
+					<div class="box-body">
+						<!-- VOCABULARY -->
+						<div class="col-md-12" id="vocabulary">
+							<h4>Học 5 từ vựng</h4>
+							<span><b>Câu hỏi 1/5:</b></span>
+							<h5>Chọn từ vựng mô tả hình ảnh sau đây:</h5>
+							<div class="col-sm-12">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-6">
+									<img class="img-responsive text-center"
+										th:src="@{/resources/dist/img/photo1.png}" alt="Photo">
+								</div>
+							</div>
+							<h5>Hãy chọn đáp án đúng nhất:</h5>
+							<div class="row col-sm-12">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-3">
+									<div class="form-group text-left">
+										<label> <input type="radio" name="r3" class="flat-red"> Home
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-3"></div>
+								<div class="col-sm-3">
+									<div class="form-group text-left">
+										<label> <input type="radio" name="r3" class="flat-red"> Sun
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="row col-sm-12">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-3">
+									<div class="form-group text-left">
+										<label> <input type="radio" name="r3" class="flat-red"> Tower
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-3"></div>
+								<div class="col-sm-3">
+									<div class="form-group text-left">
+										<label> <input type="radio" name="r3" class="flat-red"> Street
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12 text-center">
+									<button type="submit" class="btn btn-danger">Submit</button>
+								</div>
+							</div>
+						</div>
+						
+						<!-- GRAMMAR -->
+						<div class="col-md-12" id="grammar">
+							<h4>Học 5 ngữ pháp</h4>
+							<span><b>Câu hỏi 1/5:</b></span>
+							<h5>Điền từ vào chỗ trống cho đúng ngữ pháp:</h5>
+							<div class="col-sm-12">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-6">
+									<b>Put plants</b> ............... <b>a window so that they will get enough light</b>
+								</div>
+							</div>
+							<h5>Hãy chọn đáp án đúng nhất:</h5>
+							<div class="row col-sm-12">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-3">
+									<div class="form-group text-left">
+										<label> <input type="radio" name="r3" class="flat-red"> near to
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-3"></div>
+								<div class="col-sm-3">
+									<div class="form-group text-left">
+										<label> <input type="radio" name="r3" class="flat-red">  near of 
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="row col-sm-12">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-3">
+									<div class="form-group text-left">
+										<label> <input type="radio" name="r3" class="flat-red"> next to
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-3"></div>
+								<div class="col-sm-3">
+									<div class="form-group text-left">
+										<label> <input type="radio" name="r3" class="flat-red"> nearly
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12 text-center">
+									<button type="submit" class="btn btn-danger">Submit</button>
+								</div>
+							</div>
+						</div>
+					
+						<!-- LISTENING -->
+						<div class="col-md-12" id="listening">
+							<h4>Nghe 2 đoạn hội thoại và trả lời câu hỏi</h4>
+							<span><b>Hội thoại 1/2:</b></span>
+							<h5>Nghe và trả lời câu hỏi sau:</h5>
+							<div class="col-sm-12">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-6">
+									<img class="img-responsive text-center"
+										th:src="@{/resources/custom/img/2096.png}" alt="Photo">
+									<div class="media">
+										<audio id="i63KRFAX" controls src="https://www.toeic123.vn/upload/2016/04/2095.mp3"
+											style="width: 100%">
+										</audio>
+									</div>
+								</div>
+							</div>
+							<h5>Hãy chọn đáp án đúng nhất:</h5>
+							<div class="row col-sm-12">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-3">
+									<div class="form-group text-left">
+										<label> <input type="radio" name="r3" class="flat-red"> (A)
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-3"></div>
+								<div class="col-sm-3">
+									<div class="form-group text-left">
+										<label> <input type="radio" name="r3" class="flat-red"> (B)
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="row col-sm-12">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-3">
+									<div class="form-group text-left">
+										<label> <input type="radio" name="r3" class="flat-red"> (C)
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-3"></div>
+								<div class="col-sm-3">
+									<div class="form-group text-left">
+										<label> <input type="radio" name="r3" class="flat-red"> (D)
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12 text-center">
+									<button type="submit" class="btn btn-danger">Submit</button>
+								</div>
+							</div>
+						</div>
+
+						<!-- READING -->
+						<div class="col-md-12" id="reading">
+							<h4>Đọc 2 bài đọc và trả lời câu hỏi</h4>
+							<span><b>Bài đọc 1/2:</b></span>
+							<h5>Đọc đoạn văn và trả lời câu hỏi sau:</h5>
+							<div class="col-sm-12">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-6">
+									<img class="img-responsive text-center"
+										th:src="@{/resources/custom/img/16709.png}" alt="Photo">						
+								</div>
+							</div>
+							
+							<h5>Hãy chọn đáp án đúng nhất:</h5>
+							<div>
+								<h4 class=""><b>How should the Roast be prepared to cook hamburger?</b></h4>
+							</div>
+							<div class="row col-sm-12">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-3">
+									<div class="form-group text-left">
+										<label> <input type="radio" name="r3" class="flat-red"> The timer setting should be changed.
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-3"></div>
+								<div class="col-sm-3">
+									<div class="form-group text-left">
+										<label> <input type="radio" name="r3" class="flat-red"> The temperature setting should be adjusted.
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="row col-sm-12">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-3">
+									<div class="form-group text-left">
+										<label> <input type="radio" name="r3" class="flat-red"> The lid should be removed.
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-3"></div>
+								<div class="col-sm-3">
+									<div class="form-group text-left">
+										<label> <input type="radio" name="r3" class="flat-red"> The rollers should be removed.
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12 text-center">
+									<button type="submit" class="btn btn-danger">Submit</button>
+								</div>
+							</div>
+						</div>
+						<!-- END -->
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /.content -->
+	</div>
+	<!-- /.content-wrapper -->
 </body>
 </html>
