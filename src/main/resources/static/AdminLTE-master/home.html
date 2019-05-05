@@ -33,6 +33,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <style type="text/css">
+    .products-list>li img{
+      border-radius: 50%;
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -262,28 +269,28 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
         <li class="active treeview menu-open">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Mission</span>
+            <i class="fa fa-dashboard"></i> <span>Nhiệm Vụ</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="basicMission.html"><i class="fa fa-circle-o"></i> Basic Mission</a></li>
-            <li><a href="advancedMission.html"><i class="fa fa-circle-o"></i> Advanced Mission</a></li>
+            <li><a href="index.html"><i class="fa fa-circle-o"></i> Nhiệm Vụ Cơ Bản</a></li>
+            <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Nhiệm Vụ Nâng Cao</a></li>
             
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
-            <span>PvP</span>
+            <span>Thách Đấu</span>
             <span class="pull-right-container">
               <span class="label label-primary pull-right">2</span>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> PvP 1x1</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> PvP team</a></li>
+            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Thách Đấu Đơn</a></li>
+            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Thách Đấu Đôi</a></li>
             
           </ul>
         </li>
@@ -308,21 +315,220 @@ desired effect
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <!-- <section class="content-header">
       <h1>
-        Page Header
-        <small>Optional description</small>
+        User Profile
       </h1>
-      
-    </section>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">User profile</li>
+      </ol>
+    </section> -->
 
     <!-- Main content -->
     <section class="content container-fluid">
 
-      <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
+      <div class="row">
+        <div class="col-md-9">
 
+          <div class="row">
+            <div class="col-md-6">
+
+              <!-- XẾP HẠNG -->
+              <div class="box box-primary">
+                <div class="box-header ui-sortable-handle">
+                  <i class="ion ion-clipboard"></i>
+                  <h3 class="box-title">Bảng xếp hạng</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <h4>Top 3</h4>
+                  <ul class="products-list product-list-in-box">
+                    <li class="item">
+                      <div class="text-center">
+                        <span class="label label-danger pull-left">1</span>
+                      </div>
+                      <div class="product-img" style="margin-left: 20px;">
+                        <img src="dist/img/user8-128x128.jpg" alt="User Image">
+                      </div>
+                      <div class="product-info">
+                        <a href="javascript:void(0)" class="product-title">User 11</a>
+                        <span class="product-description">
+                          Level: 30, EXP: 20%
+                        </span>
+                      </div>
+                    </li>
+                    <!-- /.item -->
+                    <li class="item">
+                      <div class="text-center">
+                        <span class="label label-warning pull-left">2</span>
+                      </div>
+                      <div class="product-img" style="margin-left: 20px;">
+                        <img src="dist/img/user1-128x128.jpg" alt="User Image">
+                      </div>
+                      <div class="product-info">
+                        <a href="javascript:void(0)" class="product-title">User 112</a>
+                        <span class="product-description">
+                          Level: 30, EXP: 20%
+                        </span>
+                      </div>
+                    </li>
+                    <!-- /.item -->
+                    <li class="item">
+                      <div class="text-center">
+                        <span class="label label-success pull-left">3</span>
+                      </div>
+                      <div class="product-img" style="margin-left: 20px;">
+                        <img src="dist/img/default-50x50.gif" alt="Product Image">
+                      </div>
+                      <div class="product-info">
+                        <a href="javascript:void(0)" class="product-title">User 22</a>
+                        <span class="product-description">
+                          Level: 30, EXP: 20%
+                        </span>
+                      </div>
+                    </li>
+                    <!-- /.item -->
+                    <h4>Bạn</h4>
+                    <li class="item">
+                      <div class="text-center">
+                        <span class="label label-default pull-left">300</span>
+                      </div>
+                      <div class="product-img" style="margin-left: 20px;">
+                        <img src="dist/img/user2-160x160.jpg" alt="Product Image">
+                      </div>
+                      <div class="product-info">
+                        <a href="javascript:void(0)" class="product-title">Viết Thanh</a>
+                        <span class="product-description">
+                          Level: 29, EXP: 0%
+                        </span>
+                      </div>
+                    </li>
+                    <!-- /.item -->
+                  </ul>
+                </div>
+              </div>
+              <!-- /XẾP HẠNG -->
+
+            </div>
+            <div class="col-md-6">
+              <!-- THỐNG KÊ -->
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <i class="fa fa-bar-chart-o"></i>
+
+                  <h3 class="box-title">Bar Chart</h3>
+
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div>
+                <div class="box-body">
+                  <div id="bar-chart" style="height: 360px; padding: 0px; position: relative;"><canvas class="flot-base" width="344" height="300" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 344.5px; height: 300px;"></canvas>
+                    <div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
+                      <div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;">
+                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 57px; top: 283px; left: 16px; text-align: center;">January</div>
+                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 57px; top: 283px; left: 68px; text-align: center;">February</div>
+                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 57px; top: 283px; left: 130px; text-align: center;">March</div>
+                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 57px; top: 283px; left: 188px; text-align: center;">April</div>
+                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 57px; top: 283px; left: 244px; text-align: center;">May</div>
+                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 57px; top: 283px; left: 297px; text-align: center;">June</div>
+                      </div>
+                      <div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;">
+                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 270px; left: 7px; text-align: right;">0</div>
+                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 203px; left: 7px; text-align: right;">5</div>
+                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 135px; left: 1px; text-align: right;">10</div>
+                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 68px; left: 1px; text-align: right;">15</div>
+                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 0px; left: 1px; text-align: right;">20</div>
+                      </div>
+                    </div>
+                    <canvas class="flot-overlay" width="344" height="300" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 344.5px; height: 300px;"></canvas></div>
+                </div>
+                <!-- /.box-body-->
+              </div>
+              <!-- /THỐNG KÊ -->
+
+            </div>
+          </div>
+
+          <!-- THÔNG BÁO -->
+          <div class="box box-primary">
+            <div class="box-header ui-sortable-handle">
+              <i class="fa fa-bell-o"></i>
+              <h3 class="box-title">Thông báo</h3>
+
+              <div class="box-tools pull-right">
+                <ul class="pagination pagination-sm inline">
+                  <li><a href="#">«</a></li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">»</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
+              <ul class="todo-list ui-sortable">
+                <li>
+                  <!-- todo text -->
+                  <span class="text">Design a nice theme</span>
+                  <!-- Emphasis label -->
+                  <small class="label label-danger pull-right"><i class="fa fa-clock-o"></i> 2 mins</small>
+                </li>
+                <li>
+                  <span class="text">Make the theme responsive</span>
+                  <small class="label label-info pull-right"><i class="fa fa-clock-o"></i> 4 hours</small>
+                </li>
+                <li>
+                  <span class="text">Let theme shine like a star</span>
+                  <small class="label label-warning pull-right"><i class="fa fa-clock-o"></i> 1 day</small>
+                </li>
+                <li>
+                  <span class="text">Let theme shine like a star</span>
+                  <small class="label label-default pull-right"><i class="fa fa-clock-o"></i> 02/04/2019 </small>
+                </li>
+                <li>
+                  <span class="text">Check your messages and notifications</span>
+                  <small class="label label-default pull-right"><i class="fa fa-clock-o"></i> 02/04/2019</small>
+                </li>
+                <li>
+                  <span class="text">Let theme shine like a star</span>
+                  <small class="label label-default pull-right"><i class="fa fa-clock-o"></i> 02/04/2019</small>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- /THÔNG BÁO -->
+        </div>
+        <!-- /.col -->
+
+        <!-- LIST FRIENDs -->
+        <div class="col-md-3">
+          <!-- Profile Image -->
+          <div class="box box-primary">
+            <div class="box-body box-profile" style="height: 100vh;">
+              
+              <h3 class="profile-username text-center">List Friend</h3>
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Level</b> <a class="pull-right">15</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Exp</b> <a class="pull-right">3.564.755</a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
@@ -335,7 +541,7 @@ desired effect
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2019 <a href="#">Company</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
@@ -425,9 +631,56 @@ desired effect
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<!-- FLOT CHARTS -->
+<script src="bower_components/Flot/jquery.flot.js"></script>
+<!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+<script src="bower_components/Flot/jquery.flot.resize.js"></script>
+<!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
+<script src="bower_components/Flot/jquery.flot.categories.js"></script>
+<!-- Page script -->
+<script>
+  $(function () {
+    /*
+     * BAR CHART
+     * ---------
+     */
 
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. -->
+    var bar_data = {
+      data : [['January', 10], ['February', 8], ['March', 4], ['April', 13], ['May', 17], ['June', 9]],
+      color: '#3c8dbc'
+    }
+    $.plot('#bar-chart', [bar_data], {
+      grid  : {
+        borderWidth: 1,
+        borderColor: '#f3f3f3',
+        tickColor  : '#f3f3f3'
+      },
+      series: {
+        bars: {
+          show    : true,
+          barWidth: 0.5,
+          align   : 'center'
+        }
+      },
+      xaxis : {
+        mode      : 'categories',
+        tickLength: 0
+      }
+    })
+    /* END BAR CHART */
+
+  })
+
+  /*
+   * Custom Label formatter
+   * ----------------------
+   */
+  function labelFormatter(label, series) {
+    return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">'
+      + label
+      + '<br>'
+      + Math.round(series.percent) + '%</div>'
+  }
+</script>
 </body>
 </html>
