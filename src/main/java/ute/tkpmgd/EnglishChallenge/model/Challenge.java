@@ -1,8 +1,15 @@
 package ute.tkpmgd.EnglishChallenge.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 /**
@@ -16,13 +23,16 @@ public class Challenge implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_challenge")
 	private int idChallenge;
 
+	@Column(name="create_time")
 	private String createTime;
 
 	private int level;
 
-	private boolean typeChallenge;
+	@Column(name="type_challenge")
+	private byte typeChallenge;
 
 	//bi-directional many-to-one association to Challengequestion
 	@OneToMany(mappedBy="challenge")
@@ -59,11 +69,11 @@ public class Challenge implements Serializable {
 		this.level = level;
 	}
 
-	public boolean getTypeChallenge() {
+	public byte getTypeChallenge() {
 		return this.typeChallenge;
 	}
 
-	public void setTypeChallenge(boolean typeChallenge) {
+	public void setTypeChallenge(byte typeChallenge) {
 		this.typeChallenge = typeChallenge;
 	}
 

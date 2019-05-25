@@ -16,15 +16,19 @@ public class Mission implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_mission")
 	private int idMission;
 
 	private int level;
 
+	@Column(name="name_mission")
 	private String nameMission;
 
+	@Column(name="receive_exp")
 	private int receiveExp;
 
-	private boolean typeMission;
+	@Column(name="type_mission")
+	private String typeMission;
 
 	//bi-directional many-to-one association to Question
 	@OneToMany(mappedBy="mission")
@@ -69,11 +73,11 @@ public class Mission implements Serializable {
 		this.receiveExp = receiveExp;
 	}
 
-	public boolean getTypeMission() {
+	public String getTypeMission() {
 		return this.typeMission;
 	}
 
-	public void setTypeMission(boolean typeMission) {
+	public void setTypeMission(String typeMission) {
 		this.typeMission = typeMission;
 	}
 

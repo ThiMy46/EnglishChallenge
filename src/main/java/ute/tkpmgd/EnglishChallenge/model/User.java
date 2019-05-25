@@ -1,9 +1,15 @@
 package ute.tkpmgd.EnglishChallenge.model;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
 /**
@@ -17,6 +23,7 @@ public class User implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_user")
 	private int idUser;
 
 	private String password;
@@ -25,9 +32,9 @@ public class User implements Serializable {
 
 	private String username;
 
-	//bi-directional many-to-one association to Userinfo
-	@OneToMany(mappedBy="user")
-	private List<UserInfo> userinfos;
+	//bi-directional one-to-one association to Userinfo
+	@OneToOne(mappedBy="user", fetch=FetchType.LAZY)
+	private UserInfo userinfo;
 
 	public User() {
 	}
@@ -64,12 +71,11 @@ public class User implements Serializable {
 		this.username = username;
 	}
 
-	public List<UserInfo> getUserinfos() {
-		return userinfos;
+	public UserInfo getUserinfo() {
+		return this.userinfo;
 	}
 
-	public void setUserinfos(List<UserInfo> userinfos) {
-		this.userinfos = userinfos;
+	public void setUserinfo(UserInfo userinfo) {
+		this.userinfo = userinfo;
 	}
-
 }

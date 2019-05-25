@@ -15,29 +15,32 @@ public class TeamAnswer implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idTeamAnswer;
+	@Column(name="id_teamanswer")
+	private int idTeamanswer;
 
 	private String answer;
 
 	private String time;
 
+	//bi-directional many-to-one association to Challengequestion
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idChallengeQuestion")
+	@JoinColumn(name="id_challengequestion")
 	private ChallengeQuestion challengequestion;
 
+	//bi-directional many-to-one association to Team
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idTeam")
+	@JoinColumn(name="id_team")
 	private Team team;
 
 	public TeamAnswer() {
 	}
 
-	public int getIdTeamAnswer() {
-		return this.idTeamAnswer;
+	public int getIdTeamanswer() {
+		return this.idTeamanswer;
 	}
 
-	public void setIdTeamAnswer(int idTeamAnswer) {
-		this.idTeamAnswer = idTeamAnswer;
+	public void setIdTeamanswer(int idTeamanswer) {
+		this.idTeamanswer = idTeamanswer;
 	}
 
 	public String getAnswer() {

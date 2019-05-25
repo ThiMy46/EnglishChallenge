@@ -16,9 +16,10 @@ public class UserInfo implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idUserInfo;
+	@Column(name="id_user")
+	private int idUser;
 
-	private boolean active;
+	private byte active;
 
 	private String avatar;
 
@@ -30,48 +31,51 @@ public class UserInfo implements Serializable {
 
 	private String fullname;
 
-	private boolean gender;
+	private byte gender;
 
 	private int level;
 
-	private boolean online;
+	private byte online;
 
 	private String phone;
 
+	//bi-directional many-to-one association to Jointeam
 	@OneToMany(mappedBy="userinfo")
 	private List<JoinTeam> jointeams;
 
+	//bi-directional many-to-one association to Userchat
 	@OneToMany(mappedBy="userinfo1")
 	private List<UserChat> userchats1;
 
+	//bi-directional many-to-one association to Userchat
 	@OneToMany(mappedBy="userinfo2")
 	private List<UserChat> userchats2;
 
-	//bi-directional many-to-one association to User
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idUser")
+	//bi-directional one-to-one association to User
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="id_user")
 	private User user;
 
-
+	//bi-directional many-to-one association to Usermission
 	@OneToMany(mappedBy="userinfo")
 	private List<UserMission> usermissions;
 
 	public UserInfo() {
 	}
 
-	public int getIdUserInfo() {
-		return idUserInfo;
+	public int getIdUser() {
+		return this.idUser;
 	}
 
-	public void setIdUserInfo(int idUserInfo) {
-		this.idUserInfo = idUserInfo;
+	public void setIdUser(int idUser) {
+		this.idUser = idUser;
 	}
 
-	public boolean getActive() {
+	public byte getActive() {
 		return this.active;
 	}
 
-	public void setActive(boolean active) {
+	public void setActive(byte active) {
 		this.active = active;
 	}
 
@@ -115,11 +119,11 @@ public class UserInfo implements Serializable {
 		this.fullname = fullname;
 	}
 
-	public boolean getGender() {
+	public byte getGender() {
 		return this.gender;
 	}
 
-	public void setGender(boolean gender) {
+	public void setGender(byte gender) {
 		this.gender = gender;
 	}
 
@@ -131,11 +135,11 @@ public class UserInfo implements Serializable {
 		this.level = level;
 	}
 
-	public boolean getOnline() {
+	public byte getOnline() {
 		return this.online;
 	}
 
-	public void setOnline(boolean online) {
+	public void setOnline(byte online) {
 		this.online = online;
 	}
 

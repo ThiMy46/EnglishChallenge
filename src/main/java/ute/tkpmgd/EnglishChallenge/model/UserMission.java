@@ -15,29 +15,33 @@ public class UserMission implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idUserMission;
+	@Column(name="id_usermission")
+	private int idUsermission;
 
+	@Column(name="last_result")
 	private int lastResult;
 
 	private int state;
 
+	//bi-directional many-to-one association to Mission
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idMission")
+	@JoinColumn(name="id_mission")
 	private Mission mission;
 
+	//bi-directional many-to-one association to Userinfo
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idUser")
+	@JoinColumn(name="id_user")
 	private UserInfo userinfo;
 
 	public UserMission() {
 	}
 
-	public int getIdUserMission() {
-		return this.idUserMission;
+	public int getIdUsermission() {
+		return this.idUsermission;
 	}
 
-	public void setIdUserMission(int idUserMission) {
-		this.idUserMission = idUserMission;
+	public void setIdUsermission(int idUsermission) {
+		this.idUsermission = idUsermission;
 	}
 
 	public int getLastResult() {

@@ -16,16 +16,17 @@ public class ChallengeQuestion implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idChallengeQuestion;
+	@Column(name="id_challengequestion")
+	private int idChallengequestion;
 
 	//bi-directional many-to-one association to Challenge
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idChallenge")
+	@JoinColumn(name="id_challenge")
 	private Challenge challenge;
 
 	//bi-directional many-to-one association to Question
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idQuestion")
+	@JoinColumn(name="id_question")
 	private Question question;
 
 	//bi-directional many-to-one association to Teamanswer
@@ -35,12 +36,12 @@ public class ChallengeQuestion implements Serializable {
 	public ChallengeQuestion() {
 	}
 
-	public int getIdChallengeQuestion() {
-		return this.idChallengeQuestion;
+	public int getIdChallengequestion() {
+		return this.idChallengequestion;
 	}
 
-	public void setIdChallengeQuestion(int idChallengeQuestion) {
-		this.idChallengeQuestion = idChallengeQuestion;
+	public void setIdChallengequestion(int idChallengequestion) {
+		this.idChallengequestion = idChallengequestion;
 	}
 
 	public Challenge getChallenge() {

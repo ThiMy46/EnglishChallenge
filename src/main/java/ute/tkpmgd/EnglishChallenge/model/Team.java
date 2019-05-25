@@ -16,22 +16,27 @@ public class Team implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_team")
 	private int idTeam;
 
 	@Column(name="in_match")
-	private boolean inMatch;
+	private byte inMatch;
 
 	private int level;
 
+	@Column(name="name_team")
 	private String nameTeam;
 
+	//bi-directional many-to-one association to Jointeam
 	@OneToMany(mappedBy="team")
 	private List<JoinTeam> jointeams;
-	
+
+	//bi-directional many-to-one association to Challenge
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idChallenge")
+	@JoinColumn(name="id_challenge")
 	private Challenge challenge;
 
+	//bi-directional many-to-one association to Teamanswer
 	@OneToMany(mappedBy="team")
 	private List<TeamAnswer> teamanswers;
 
@@ -46,11 +51,11 @@ public class Team implements Serializable {
 		this.idTeam = idTeam;
 	}
 
-	public boolean getInMatch() {
+	public byte getInMatch() {
 		return this.inMatch;
 	}
 
-	public void setInMatch(boolean inMatch) {
+	public void setInMatch(byte inMatch) {
 		this.inMatch = inMatch;
 	}
 
@@ -121,5 +126,4 @@ public class Team implements Serializable {
 
 		return teamanswer;
 	}
-
 }

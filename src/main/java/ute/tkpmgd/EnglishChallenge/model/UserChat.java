@@ -15,29 +15,32 @@ public class UserChat implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idUserChat;
+	@Column(name="id_userchat")
+	private int idUserchat;
 
 	private String message;
 
 	private String time;
 
+	//bi-directional many-to-one association to Userinfo
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idUserReceive")
+	@JoinColumn(name="id_userreceive")
 	private UserInfo userinfo1;
 
+	//bi-directional many-to-one association to Userinfo
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idUserSend")
+	@JoinColumn(name="id_usersend")
 	private UserInfo userinfo2;
 
 	public UserChat() {
 	}
 
-	public int getIdUserChat() {
-		return this.idUserChat;
+	public int getIdUserchat() {
+		return this.idUserchat;
 	}
 
-	public void setIdUserChat(int idUserChat) {
-		this.idUserChat = idUserChat;
+	public void setIdUserchat(int idUserchat) {
+		this.idUserchat = idUserchat;
 	}
 
 	public String getMessage() {
@@ -71,5 +74,6 @@ public class UserChat implements Serializable {
 	public void setUserinfo2(UserInfo userinfo2) {
 		this.userinfo2 = userinfo2;
 	}
+
 
 }

@@ -15,17 +15,19 @@ public class Answer implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_answer")
 	private int idAnswer;
 
 	@Column(name="in_correct")
-	private boolean inCorrect;
+	private int inCorrect;
 
 	@Lob
+	@Column(name="text_answer")
 	private String textAnswer;
 
 	//bi-directional many-to-one association to Question
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idQuestion")
+	@JoinColumn(name="id_question")
 	private Question question;
 
 	public Answer() {
@@ -39,11 +41,11 @@ public class Answer implements Serializable {
 		this.idAnswer = idAnswer;
 	}
 
-	public boolean getInCorrect() {
+	public int getInCorrect() {
 		return this.inCorrect;
 	}
 
-	public void setInCorrect(boolean inCorrect) {
+	public void setInCorrect(int inCorrect) {
 		this.inCorrect = inCorrect;
 	}
 

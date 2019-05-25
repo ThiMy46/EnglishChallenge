@@ -16,6 +16,7 @@ public class Question implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_question")
 	private int idQuestion;
 
 	@Lob
@@ -24,6 +25,7 @@ public class Question implements Serializable {
 	private int level;
 
 	@Lob
+	@Column(name="text_question")
 	private String textQuestion;
 
 	//bi-directional many-to-one association to Answer
@@ -36,7 +38,7 @@ public class Question implements Serializable {
 
 	//bi-directional many-to-one association to Mission
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idMission")
+	@JoinColumn(name="id_mission")
 	private Mission mission;
 
 	public Question() {

@@ -15,46 +15,47 @@ public class JoinTeam implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idJoinTeam;
+	@Column(name="id_jointeam")
+	private int idJointeam;
 
-	private boolean lead;
+	private byte lead;
 
-	private boolean ready;
+	private byte ready;
 
 	//bi-directional many-to-one association to Team
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idTeam")
+	@JoinColumn(name="id_team")
 	private Team team;
 
 	//bi-directional many-to-one association to Userinfo
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idUser")
+	@JoinColumn(name="id_user")
 	private UserInfo userinfo;
 
 	public JoinTeam() {
 	}
 
-	public int getIdJoinTeam() {
-		return this.idJoinTeam;
+	public int getIdJointeam() {
+		return this.idJointeam;
 	}
 
-	public void setIdJoinTeam(int idJoinTeam) {
-		this.idJoinTeam = idJoinTeam;
+	public void setIdJointeam(int idJointeam) {
+		this.idJointeam = idJointeam;
 	}
 
-	public boolean getLead() {
+	public byte getLead() {
 		return this.lead;
 	}
 
-	public void setLead(boolean lead) {
+	public void setLead(byte lead) {
 		this.lead = lead;
 	}
 
-	public boolean getReady() {
+	public byte getReady() {
 		return this.ready;
 	}
 
-	public void setReady(boolean ready) {
+	public void setReady(byte ready) {
 		this.ready = ready;
 	}
 
