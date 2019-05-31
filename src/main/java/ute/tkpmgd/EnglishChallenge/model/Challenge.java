@@ -32,7 +32,7 @@ public class Challenge implements Serializable {
 	private int level;
 
 	@Column(name="type_challenge")
-	private byte typeChallenge;
+	private boolean typeChallenge;
 
 	//bi-directional many-to-one association to Challengequestion
 	@OneToMany(mappedBy="challenge")
@@ -40,7 +40,7 @@ public class Challenge implements Serializable {
 
 	//bi-directional many-to-one association to Team
 	@OneToMany(mappedBy="challenge")
-	private List<Team> teams;
+	private List<JoinTeam> jointeams;
 
 	public Challenge() {
 	}
@@ -69,11 +69,11 @@ public class Challenge implements Serializable {
 		this.level = level;
 	}
 
-	public byte getTypeChallenge() {
+	public boolean getTypeChallenge() {
 		return this.typeChallenge;
 	}
 
-	public void setTypeChallenge(byte typeChallenge) {
+	public void setTypeChallenge(boolean typeChallenge) {
 		this.typeChallenge = typeChallenge;
 	}
 
@@ -99,26 +99,13 @@ public class Challenge implements Serializable {
 		return challengequestion;
 	}
 
-	public List<Team> getTeams() {
-		return this.teams;
+	public List<JoinTeam> getJointeams() {
+		return jointeams;
 	}
 
-	public void setTeams(List<Team> teams) {
-		this.teams = teams;
+	public void setJointeams(List<JoinTeam> jointeams) {
+		this.jointeams = jointeams;
 	}
 
-	public Team addTeam(Team team) {
-		getTeams().add(team);
-		team.setChallenge(this);
-
-		return team;
-	}
-
-	public Team removeTeam(Team team) {
-		getTeams().remove(team);
-		team.setChallenge(null);
-
-		return team;
-	}
-
+	
 }

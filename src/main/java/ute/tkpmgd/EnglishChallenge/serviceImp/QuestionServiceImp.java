@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ute.tkpmgd.EnglishChallenge.dao.QuestionRepository;
-import ute.tkpmgd.EnglishChallenge.exception.QuestionNotFoundException;
+import ute.tkpmgd.EnglishChallenge.exception.NotFoundException;
 import ute.tkpmgd.EnglishChallenge.model.Question;
 import ute.tkpmgd.EnglishChallenge.service.IQuestionService;
 
@@ -17,6 +17,6 @@ public class QuestionServiceImp implements IQuestionService{
 	@Override
 	public Question findQuestionById(int id) {
 		return questionRepository.findById(id)
-				.orElseThrow(() -> new QuestionNotFoundException());
+				.orElseThrow(() -> new NotFoundException());
 	}
 }

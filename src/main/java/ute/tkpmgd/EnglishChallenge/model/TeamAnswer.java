@@ -28,9 +28,9 @@ public class TeamAnswer implements Serializable {
 	private ChallengeQuestion challengequestion;
 
 	//bi-directional many-to-one association to Team
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="id_team")
-	private Team team;
+//	@ManyToOne(fetch=FetchType.LAZY)
+//	@JoinColumn(name="id_team")
+//	private Team team;
 
 	public TeamAnswer() {
 	}
@@ -67,12 +67,5 @@ public class TeamAnswer implements Serializable {
 		this.challengequestion = challengequestion;
 	}
 
-	public Team getTeam() {
-		return this.team;
-	}
-
-	public void setTeam(Team team) {
-		this.team = team;
-	}
 
 }

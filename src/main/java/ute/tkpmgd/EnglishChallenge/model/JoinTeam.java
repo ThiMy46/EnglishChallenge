@@ -1,7 +1,16 @@
 package ute.tkpmgd.EnglishChallenge.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 
 /**
@@ -18,14 +27,18 @@ public class JoinTeam implements Serializable {
 	@Column(name="id_jointeam")
 	private int idJointeam;
 
-	private byte lead;
+	private boolean lead;
 
-	private byte ready;
+	private boolean ready;
+	
+	private int result;
 
-	//bi-directional many-to-one association to Team
+	private String timecomplete;
+	
+	//bi-directional many-to-one association to Userinfo
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="id_team")
-	private Team team;
+	@JoinColumn(name="id_challenge")
+	private Challenge challenge;
 
 	//bi-directional many-to-one association to Userinfo
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -43,28 +56,20 @@ public class JoinTeam implements Serializable {
 		this.idJointeam = idJointeam;
 	}
 
-	public byte getLead() {
+	public boolean getLead() {
 		return this.lead;
 	}
 
-	public void setLead(byte lead) {
+	public void setLead(boolean lead) {
 		this.lead = lead;
 	}
 
-	public byte getReady() {
+	public boolean getReady() {
 		return this.ready;
 	}
 
-	public void setReady(byte ready) {
+	public void setReady(boolean ready) {
 		this.ready = ready;
-	}
-
-	public Team getTeam() {
-		return this.team;
-	}
-
-	public void setTeam(Team team) {
-		this.team = team;
 	}
 
 	public UserInfo getUserinfo() {
@@ -75,4 +80,29 @@ public class JoinTeam implements Serializable {
 		this.userinfo = userinfo;
 	}
 
+	public int getResult() {
+		return result;
+	}
+
+	public void setResult(int result) {
+		this.result = result;
+	}
+
+	public String getTimecomplete() {
+		return timecomplete;
+	}
+
+	public void setTimecomplete(String timecomplete) {
+		this.timecomplete = timecomplete;
+	}
+
+	public Challenge getChallenge() {
+		return challenge;
+	}
+
+	public void setChallenge(Challenge challenge) {
+		this.challenge = challenge;
+	}
+
+	
 }
