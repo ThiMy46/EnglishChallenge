@@ -122,6 +122,14 @@ public class JoinServiceImp implements IJoinService{
 	public ResultResponse completeJoin(int joinId) {
 		ResultResponse response = new ResultResponse();
 		Join join = joinRepository.getOne(joinId);
+		if (join.getTime1() == 0) {
+			join.setTime1(MAX_SECONDS);
+		}
+		if (join.getTime2() == 0) {
+			join.setTime2(MAX_SECONDS);
+		}
+		join = joinRepository.save(join);
+		
 		List<ResultUserInfo> userInfos = new ArrayList<>();
 		
 		ResultUserInfo userInfo = new ResultUserInfo();
