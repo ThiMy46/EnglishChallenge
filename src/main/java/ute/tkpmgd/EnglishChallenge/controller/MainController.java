@@ -65,4 +65,8 @@ public class MainController {
 	public String singleChallenge() {
 		return "singleChallenge";
 	}
+	@RequestMapping("/reviewQuestion")
+	public String reviewQuestion() {
+		return "reviewQuestion";
+	}
 }
