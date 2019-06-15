@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import ute.tkpmgd.EnglishChallenge.model.TestQuestion;
+import ute.tkpmgd.EnglishChallenge.response.QuestionResponse;
 import ute.tkpmgd.EnglishChallenge.serviceImp.TestQuestionServiceImp;
 
 @RestController
@@ -15,12 +16,11 @@ import ute.tkpmgd.EnglishChallenge.serviceImp.TestQuestionServiceImp;
 public class TestQuestionController {
 
 	@Autowired
-	TestQuestionServiceImp questionSer;
+	TestQuestionServiceImp questionService;
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getQuestionByid(@PathVariable int id) {
-		TestQuestion question = questionSer.getQuestionById(id);
-		
-		return ResponseEntity.ok().body(question);
+		TestQuestion question = questionService.getQuestionById(id);
+		return ResponseEntity.ok().body(new QuestionResponse(question));
 	}
 }
