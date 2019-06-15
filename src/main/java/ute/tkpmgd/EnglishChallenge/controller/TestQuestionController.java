@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ute.tkpmgd.EnglishChallenge.model.TestQuestion;
 import ute.tkpmgd.EnglishChallenge.response.QuestionResponse;
-import ute.tkpmgd.EnglishChallenge.serviceImp.TestQuestionServiceImp;
+import ute.tkpmgd.EnglishChallenge.service.ITestQuestionService;
 
 @RestController
 @RequestMapping("/api/testquestion")
 public class TestQuestionController {
 
 	@Autowired
-	TestQuestionServiceImp questionService;
+	private ITestQuestionService questionService;
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getQuestionByid(@PathVariable int id) {

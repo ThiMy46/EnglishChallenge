@@ -2,8 +2,8 @@ package ute.tkpmgd.EnglishChallenge.response;
 
 public class StatusJoinResponse {
 
-	private boolean status = false;
-	private int joinId;
+	protected boolean status = false;
+	protected int joinId;
 	
 	public boolean isStatus() {
 		return status;
