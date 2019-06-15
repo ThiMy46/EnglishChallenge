@@ -247,7 +247,7 @@ xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a th:href="@{/singleChallenge}"><i class="fa fa-circle-o"></i> Thách Đấu Đơn</a></li>
+            <li><a data-toggle="modal" data-target="#myModal1"><i class="fa fa-circle-o"></i> Thách Đấu Đơn</a></li>
             <li><a th:href="@{/doubleChallenge}"><i class="fa fa-circle-o"></i> Thách Đấu Đôi</a></li>
             
           </ul>
@@ -257,6 +257,37 @@ xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
     </section>
     <!-- /.sidebar -->
   </aside>
+
+	 <!-- Modal Chờ-->
+	  <div style="radius: 5px;" class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog modal-sm">
+	      <div class="modal-content"  style="border-radius: 5px;">
+	        
+	        <div class="modal-body">
+	          <p>Đang chờ đối thủ...</p>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" style="float: left;" class="btn btn-default" data-dismiss="modal" >Hủy</button>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  
+	  <!-- Modal sẵn sàng-->
+	  <div class="modal fade" id="myModal1" role="dialog">
+	    <div class="modal-dialog modal-sm">
+	      <div class="modal-content" style="border-radius: 5px;">
+	        
+	        <div class="modal-body">
+	          <p>Khi tham gia chế độ thách đấu này sẽ ảnh hưởng đến kinh nghiệm của bạn. <br/>Bạn có sẵn sàng không?</p>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" style="float: left;" class="btn btn-default" data-dismiss="modal">Hủy</button>
+	          <button type="button" style="float: right;" class="btn btn-success" data-dismiss="modal" data-toggle="modal" data-target="#myModal">Sẵn sàng >></button>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" layout:fragment="content">
