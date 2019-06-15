@@ -45,6 +45,11 @@ public class JoinRestController {
 	public ResponseEntity<?> progress(@PathVariable("id") int joinId) {
 		return ResponseEntity.ok(joinService.getTimeSecond(joinId));
 	}
+	
+	@GetMapping(value = "/complete/{id}")
+	public ResponseEntity<?> complete(@PathVariable("id") int joinId) {
+		return ResponseEntity.ok(joinService.completeJoin(joinId));
+	}
 
 	private Runnable processTimeSecond(int joinId) {
 		return () -> joinService.processTimeSecond(joinId, scheduledFuture);

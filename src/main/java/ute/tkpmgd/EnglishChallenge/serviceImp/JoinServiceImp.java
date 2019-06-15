@@ -1,7 +1,9 @@
 package ute.tkpmgd.EnglishChallenge.serviceImp;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ScheduledFuture;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,9 @@ import ute.tkpmgd.EnglishChallenge.dao.JoinRepository;
 import ute.tkpmgd.EnglishChallenge.dao.TestQuestionRepository;
 import ute.tkpmgd.EnglishChallenge.model.Join;
 import ute.tkpmgd.EnglishChallenge.model.TestQuestion;
+import ute.tkpmgd.EnglishChallenge.response.QuestionInfo;
+import ute.tkpmgd.EnglishChallenge.response.ResultResponse;
+import ute.tkpmgd.EnglishChallenge.response.ResultUserInfo;
 import ute.tkpmgd.EnglishChallenge.response.StatusJoinResponse;
 import ute.tkpmgd.EnglishChallenge.response.StatusUserAnswerResponse;
 import ute.tkpmgd.EnglishChallenge.service.IJoinService;
@@ -112,6 +117,35 @@ public class JoinServiceImp implements IJoinService{
 		joinResponse.setJoinId(joinId);
 		return joinResponse;
 	}
-	
+
+	@Override
+	public ResultResponse completeJoin(int joinId) {
+		ResultResponse response = new ResultResponse();
+		Join join = joinRepository.getOne(joinId);
+		List<ResultUserInfo> userInfos = new ArrayList<>();
+		
+		ResultUserInfo userInfo = new ResultUserInfo();
+		userInfo.setId(join.getUser1());
+		userInfo.setScore(join.getRight1());
+		userInfo.setTime(join.getTime1());
+		userInfo.setTotal(join.getTotal1());
+		userInfos.add(userInfo);
+		
+		userInfo = new ResultUserInfo();
+		userInfo.setId(join.getUser2());
+		userInfo.setScore(join.getRight2());
+		userInfo.setTime(join.getTime2());
+		userInfo.setTotal(join.getTotal2());
+		userInfos.add(userInfo);
+
+		List<QuestionInfo> questionInfos = testQuestionRepository.findAll().stream().map(QuestionInfo::new)
+				.collect(Collectors.toList());
+		
+		response.setQuestionInfos(questionInfos);
+		response.setUserInfos(userInfos);
+		response.setTimeRemain(join.getTimeRemain());
+		
+		return response;
+	}
 
 }
