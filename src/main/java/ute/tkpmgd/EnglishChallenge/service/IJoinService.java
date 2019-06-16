@@ -2,6 +2,7 @@ package ute.tkpmgd.EnglishChallenge.service;
 
 import java.util.concurrent.ScheduledFuture;
 
+import ute.tkpmgd.EnglishChallenge.response.MessageResponse;
 import ute.tkpmgd.EnglishChallenge.response.ResultResponse;
 import ute.tkpmgd.EnglishChallenge.response.StatusJoinResponse;
 
@@ -17,4 +18,6 @@ public interface IJoinService {
 	public int getTimeSecond(int joinId);
 	public ResultResponse completeJoin(int joinId);
 	public StatusJoinResponse saveUserAnswer(int userId, int answer, int joinId);
+	public MessageResponse saveMessage(int joinId, String message, int userId);
+	public MessageResponse getMessage(int joinId, int userId);
 }

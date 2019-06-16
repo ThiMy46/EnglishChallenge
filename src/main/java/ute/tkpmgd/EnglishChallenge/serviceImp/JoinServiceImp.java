@@ -13,6 +13,7 @@ import ute.tkpmgd.EnglishChallenge.dao.JoinRepository;
 import ute.tkpmgd.EnglishChallenge.dao.TestQuestionRepository;
 import ute.tkpmgd.EnglishChallenge.model.Join;
 import ute.tkpmgd.EnglishChallenge.model.TestQuestion;
+import ute.tkpmgd.EnglishChallenge.response.MessageResponse;
 import ute.tkpmgd.EnglishChallenge.response.QuestionInfo;
 import ute.tkpmgd.EnglishChallenge.response.ResultResponse;
 import ute.tkpmgd.EnglishChallenge.response.ResultUserInfo;
@@ -152,6 +153,40 @@ public class JoinServiceImp implements IJoinService{
 		response.setUserInfos(userInfos);
 		response.setTimeRemain(join.getTimeRemain());
 		
+		return response;
+	}
+
+	@Override
+	public MessageResponse saveMessage(int joinId, String message, int userId) {
+		MessageResponse response = new MessageResponse();
+		Join join = joinRepository.getOne(joinId);
+		if(userId == join.getUser1()) {
+			join.setMessage1(message);
+			join.setSeen1(1);
+		} else if (userId == join.getUser2()){
+			join.setMessage2(message);
+			join.setSeen2(1);
+		}
+		joinRepository.save(join);
+		response.setMe(true);
+		response.setMessage(message);
+		return response;
+	}
+
+	@Override
+	public MessageResponse getMessage(int joinId, int userId) {
+		MessageResponse response = new MessageResponse();
+		Join join = joinRepository.getOne(joinId);
+		response.setMe(false);
+		if (userId == join.getUser1() && join.getSeen2() == 1) {
+			join.setSeen2(0);
+			response.setMessage(join.getMessage2());
+		}
+		if (userId == join.getUser2() && join.getSeen1() == 1) {
+			join.setSeen1(0);
+			response.setMessage(join.getMessage1());
+		}
+		joinRepository.save(join);
 		return response;
 	}
 

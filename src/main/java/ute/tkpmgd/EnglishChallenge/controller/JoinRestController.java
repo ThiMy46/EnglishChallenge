@@ -67,4 +67,15 @@ public class JoinRestController {
 			@RequestParam("answer") int answerUser) {
 		return ResponseEntity.ok().body(joinService.saveUserAnswer(userId, answerUser, joinId));
 	}
+	
+	@GetMapping(value = "/send/{id}")
+	public ResponseEntity<?> saveMessage1(@PathVariable("id") int joinId, @RequestParam("message") String message,
+			@RequestParam("userId") int userId) {
+		return ResponseEntity.ok(joinService.saveMessage(joinId, message, userId));
+	}
+	
+	@GetMapping(value = "/receive/{id}")
+	public ResponseEntity<?> getMessage1(@PathVariable("id") int joinId, @RequestParam("userId") int userId) {
+		return ResponseEntity.ok(joinService.getMessage(joinId, userId));
+	}
 }

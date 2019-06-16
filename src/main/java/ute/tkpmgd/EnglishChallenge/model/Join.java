@@ -36,6 +36,14 @@ public class Join implements Serializable {
 	private int timeRemain = 600000; // 10 minutes
 	
 	private int idQuestion = 1;
+	
+	private String message1;
+	
+	private String message2;
+	
+	private int seen1;
+	
+	private int seen2;
 
 	public Join() {
 	}
@@ -126,6 +134,38 @@ public class Join implements Serializable {
 
 	public void setIdQuestion(int idQuestion) {
 		this.idQuestion = idQuestion;
+	}
+
+	public String getMessage1() {
+		return message1;
+	}
+
+	public void setMessage1(String message1) {
+		this.message1 = message1;
+	}
+
+	public String getMessage2() {
+		return message2;
+	}
+
+	public void setMessage2(String message2) {
+		this.message2 = message2;
+	}
+
+	public int getSeen1() {
+		return seen1;
+	}
+
+	public void setSeen1(int seen1) {
+		this.seen1 = seen1;
+	}
+
+	public int getSeen2() {
+		return seen2;
+	}
+
+	public void setSeen2(int seen2) {
+		this.seen2 = seen2;
 	}
 
 }
