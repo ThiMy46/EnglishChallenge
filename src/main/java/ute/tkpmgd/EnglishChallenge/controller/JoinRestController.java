@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import ute.tkpmgd.EnglishChallenge.dao.JoinRepository;
+import ute.tkpmgd.EnglishChallenge.model.Join;
 import ute.tkpmgd.EnglishChallenge.service.IJoinService;
 
 @RestController
@@ -21,6 +23,9 @@ public class JoinRestController {
 	private TaskScheduler taskScheduler;
 
 	private ScheduledFuture<?> scheduledFuture;
+	
+	@Autowired
+	private JoinRepository joinRepository;
 
 	@Autowired
 	private IJoinService joinService;
@@ -36,8 +41,9 @@ public class JoinRestController {
 	}
 
 	@GetMapping(value = "/start/{id}")
-	public ResponseEntity<?> start(@PathVariable("id") int joinId) {
-		if (joinService.getTimeSecond(joinId) == IJoinService.MAX_SECONDS)
+	public ResponseEntity<?> start(@PathVariable("id") int joinId, @RequestParam(name="userId", required=true) int userId) {
+		Join join = joinRepository.getOne(joinId);
+		if (join.getTimeRemain() == IJoinService.MAX_SECONDS && join.getUser1() == userId)
 			scheduledFuture = taskScheduler.scheduleAtFixedRate(processTimeSecond(joinId), IJoinService.FIXED_RATE);
 		return ResponseEntity.ok().build();
 	}
