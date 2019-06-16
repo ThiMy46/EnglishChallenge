@@ -35,7 +35,7 @@ public class Join implements Serializable {
 	
 	private int timeRemain = 600000; // 10 minutes
 	
-	private int idQuestion;
+	private int idQuestion = 1;
 
 	public Join() {
 	}

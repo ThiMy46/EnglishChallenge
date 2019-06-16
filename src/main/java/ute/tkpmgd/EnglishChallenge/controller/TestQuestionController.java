@@ -24,7 +24,7 @@ public class TestQuestionController {
 	private JoinRepository joinRepository;
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> getQuestionByid(@PathVariable int joinId) {
+	public ResponseEntity<?> getQuestionByid(@PathVariable("id") int joinId) {
 		Join join = joinRepository.getOne(joinId);
 		TestQuestion question = questionService.getQuestionById(join.getIdQuestion() == 0 ? 1 : join.getIdQuestion());
 		return ResponseEntity.ok().body(new QuestionResponse(question));

@@ -26,36 +26,21 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="fragme
       <div class="row" style="margin:auto">
         <div class="box box-primary">
            <div class="box-body">
-            <div class="col-md-12">
-                <h4>Thách đấu từ vựng</h4>
-                <span><b>Câu hỏi 1/5:</b></span>
-                <h5>Chọn từ vựng mô tả hình ảnh sau đây:</h5>
-                <div class="col-sm-12">
-                  <div class="col-sm-3">
-                  </div>
-                  <div class="col-sm-6">
-                    <img class="img-responsive text-center" th:src="@{/resources/dist/img/photo1.png}"alt="Photo">
-                  </div>
-                </div>
-                <h5>Đáp án đúng : A</h5>
-                <h5>Giải thích:</h5>
-                
-            </div>
-             <div class="col-md-12">
-                <h4>Thách đấu từ vựng</h4>
-                <span><b>Câu hỏi 1/5:</b></span>
-                <h5>Chọn từ vựng mô tả hình ảnh sau đây:</h5>
-                <div class="col-sm-12">
-                  <div class="col-sm-3">
-                  </div>
-                  <div class="col-sm-6">
-                    <img class="img-responsive text-center" th:src="@{/resources/dist/img/photo2.png}"alt="Photo">
-                  </div>
-                </div>
-                <h5>Đáp án đúng : A</h5>
-                <h5>Giải thích:</h5>
-                
-            </div>
+	            <div class="col-md-12" id="content_review">
+	            	
+	                <!-- <span><b>Câu hỏi 1/5:</b></span>
+	                <h5>Chọn từ vựng mô tả hình ảnh sau đây:</h5>
+	                <div class="col-sm-12">
+	                  <div class="col-sm-3">
+	                  </div>
+	                  <div class="col-sm-6">
+	                    <img class="img-responsive text-center" th:src="@{/resources/dist/img/photo1.png}"alt="Photo">
+	                  </div>
+	                </div>
+	                <h5>Đáp án đúng : A</h5>
+	                <h5>Giải thích:</h5> -->
+	                
+	            </div>
            </div>
         </div>
       </div>
@@ -162,29 +147,9 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="fragme
             <!-- THANH COPY -->
     </section>
     <!-- /.content -->
-	<script>
-		var $time = document.getElementById("time");
-		var countTime = 600;
-		var textTime = formatNum(parseInt(countTime/60)) + ":" + formatNum(countTime%60);
-		$time.innerText = textTime;
-		var count = setInterval(frame, 1000);
-		
-		function frame(){ 
-			countTime--;
-			if(countTime <= 0 ){
-				$time.innerText = "OVER";
-				clearInterval(count);
-			} else {
-			    textTime = formatNum(parseInt(countTime/60)) + ":" + formatNum(countTime%60);
-			    $time.innerText = textTime;
-			}
-		}
-		function formatNum(num){
-			if(num < 10)
-				return "0" + num;
-			return num;
-		}
-	</script>
+	<!-- jQuery 3 -->
+	<script th:src="@{/resources/bower_components/jquery/dist/jquery.min.js}"></script>
+	<script th:src="@{/resources/custom/js/review.js}"></script>
   </div>
   <!-- /.content-wrapper -->
 </body>
