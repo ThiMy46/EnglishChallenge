@@ -37,7 +37,8 @@ public class JoinRestController {
 
 	@GetMapping(value = "/start/{id}")
 	public ResponseEntity<?> start(@PathVariable("id") int joinId) {
-		scheduledFuture = taskScheduler.scheduleAtFixedRate(processTimeSecond(joinId), IJoinService.FIXED_RATE);
+		if (joinService.getTimeSecond(joinId) == IJoinService.MAX_SECONDS)
+			scheduledFuture = taskScheduler.scheduleAtFixedRate(processTimeSecond(joinId), IJoinService.FIXED_RATE);
 		return ResponseEntity.ok().build();
 	}
 
