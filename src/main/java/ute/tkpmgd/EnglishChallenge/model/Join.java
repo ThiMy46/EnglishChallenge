@@ -34,6 +34,8 @@ public class Join implements Serializable {
 	private int total2;
 	
 	private int timeRemain = 600000; // 10 minutes
+	
+	private int idQuestion;
 
 	public Join() {
 	}
@@ -116,6 +118,14 @@ public class Join implements Serializable {
 
 	public void setTimeRemain(int timeRemain) {
 		this.timeRemain = timeRemain;
+	}
+
+	public int getIdQuestion() {
+		return idQuestion;
+	}
+
+	public void setIdQuestion(int idQuestion) {
+		this.idQuestion = idQuestion;
 	}
 
 }

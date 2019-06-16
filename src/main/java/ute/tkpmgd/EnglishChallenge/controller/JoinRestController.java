@@ -64,7 +64,7 @@ public class JoinRestController {
 
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<?> saveUserAnswer(@PathVariable("id") int joinId, @RequestParam("userId") int userId, 
-			@RequestParam("answer") int answerUser, @RequestParam("questionId") int questionId) {
-		return ResponseEntity.ok().body(joinService.saveUserAnswer(userId, questionId, answerUser, joinId));
+			@RequestParam("answer") int answerUser) {
+		return ResponseEntity.ok().body(joinService.saveUserAnswer(userId, answerUser, joinId));
 	}
 }

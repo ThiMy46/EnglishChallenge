@@ -4,7 +4,6 @@ import java.util.concurrent.ScheduledFuture;
 
 import ute.tkpmgd.EnglishChallenge.response.ResultResponse;
 import ute.tkpmgd.EnglishChallenge.response.StatusJoinResponse;
-import ute.tkpmgd.EnglishChallenge.response.StatusUserAnswerResponse;
 
 public interface IJoinService {
 	
@@ -17,5 +16,5 @@ public interface IJoinService {
 	public void processTimeSecond(int joinId, ScheduledFuture<?> scheduledFuture);
 	public int getTimeSecond(int joinId);
 	public ResultResponse completeJoin(int joinId);
-	public StatusUserAnswerResponse saveUserAnswer(int userId, int questionId, int answer, int joinId);
+	public StatusJoinResponse saveUserAnswer(int userId, int answer, int joinId);
 }

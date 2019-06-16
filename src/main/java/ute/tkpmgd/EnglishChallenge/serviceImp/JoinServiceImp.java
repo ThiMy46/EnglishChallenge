@@ -17,7 +17,6 @@ import ute.tkpmgd.EnglishChallenge.response.QuestionInfo;
 import ute.tkpmgd.EnglishChallenge.response.ResultResponse;
 import ute.tkpmgd.EnglishChallenge.response.ResultUserInfo;
 import ute.tkpmgd.EnglishChallenge.response.StatusJoinResponse;
-import ute.tkpmgd.EnglishChallenge.response.StatusUserAnswerResponse;
 import ute.tkpmgd.EnglishChallenge.service.IJoinService;
 
 @Service
@@ -82,10 +81,10 @@ public class JoinServiceImp implements IJoinService{
 	}
 
 	@Override
-	public StatusUserAnswerResponse saveUserAnswer(int userId, int questionId, int answer, int joinId) {
-		TestQuestion question = testQuestionRepository.getOne(questionId);
+	public StatusJoinResponse saveUserAnswer(int userId, int answer, int joinId) {
 		Join join = joinRepository.getOne(joinId);
-		StatusUserAnswerResponse joinResponse = new StatusUserAnswerResponse();
+		TestQuestion question = testQuestionRepository.getOne(join.getIdQuestion());
+		StatusJoinResponse joinResponse = new StatusJoinResponse();
 		boolean isUser1 = join.getUser1() == userId;
 		boolean isComplete;
 		int score = question.getRight() == answer ? 1 : 0;
@@ -109,7 +108,7 @@ public class JoinServiceImp implements IJoinService{
 				join.setTime2(IJoinService.MAX_SECONDS - join.getTimeRemain());
 			}
 		} else {
-			joinResponse.setNextQuestion(++questionId);
+			join.setIdQuestion(join.getIdQuestion() + 1);
 		}
 		joinRepository.save(join);
 		
