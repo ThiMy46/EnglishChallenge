@@ -84,9 +84,11 @@ public class JoinServiceImp implements IJoinService{
 	@Override
 	public StatusJoinResponse saveUserAnswer(int userId, int answer, int joinId) {
 		Join join = joinRepository.getOne(joinId);
-		TestQuestion question = testQuestionRepository.getOne(join.getIdQuestion());
 		StatusJoinResponse joinResponse = new StatusJoinResponse();
 		boolean isUser1 = join.getUser1() == userId;
+		boolean isSave = true;
+		TestQuestion question = isUser1 ? testQuestionRepository.getOne(join.getIdQuestion1()) 
+				:testQuestionRepository.getOne(join.getIdQuestion2());
 		boolean isComplete;
 		int score = question.getRight() == answer ? 1 : 0;
 		int total, right;
@@ -96,8 +98,8 @@ public class JoinServiceImp implements IJoinService{
 			join.setRight1(right);
 			join.setTotal1(total);
 		} else {
-			right = join.getRight1() + score;
-			total = join.getTotal1() + 1;
+			right = join.getRight2() + score;
+			total = join.getTotal2() + 1;
 			join.setRight2(right);
 			join.setTotal2(total);
 		}
@@ -109,9 +111,21 @@ public class JoinServiceImp implements IJoinService{
 				join.setTime2(IJoinService.MAX_SECONDS - join.getTimeRemain());
 			}
 		} else {
-			join.setIdQuestion(join.getIdQuestion() + 1);
+			if (isUser1) {
+				join.setIdQuestion1(join.getIdQuestion1() + 1);
+			} else {
+				join.setIdQuestion2(join.getIdQuestion2() + 1);
+			}
 		}
-		joinRepository.save(join);
+		if (isUser1) {
+			if (join.getTotal1() > 10)
+				isSave = false;
+		} else {
+			if (join.getTotal2() > 10)
+				isSave = false;
+		}
+		if(isSave)
+			joinRepository.save(join);
 		
 		joinResponse.setStatus(isComplete);
 		joinResponse.setJoinId(joinId);

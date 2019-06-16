@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ute.tkpmgd.EnglishChallenge.dao.JoinRepository;
@@ -24,9 +25,15 @@ public class TestQuestionController {
 	private JoinRepository joinRepository;
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> getQuestionByid(@PathVariable("id") int joinId) {
+	public ResponseEntity<?> getQuestionByid(@PathVariable("id") int joinId, @RequestParam("userId") int userId) {
 		Join join = joinRepository.getOne(joinId);
-		TestQuestion question = questionService.getQuestionById(join.getIdQuestion() == 0 ? 1 : join.getIdQuestion());
+		int idQ;
+		if(join.getUser1() == userId) {
+			idQ = join.getIdQuestion1() == 0 ? 1 : join.getIdQuestion1();
+		} else {
+			idQ = join.getIdQuestion2() == 0 ? 1 : join.getIdQuestion2();
+		}
+		TestQuestion question = questionService.getQuestionById(idQ);
 		return ResponseEntity.ok().body(new QuestionResponse(question));
 	}
 }

@@ -69,7 +69,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="fragme
                 <!-- /.box-header -->
                 <div class="box-body">
                   <!-- Conversations are loaded here -->
-                  <div class="direct-chat-messages">
+                  <div id="div-chat-box" class="direct-chat-messages">
                     <!-- Message. Default to the left -->
                     <div class="direct-chat-msg">
                       <div class="direct-chat-info clearfix">
@@ -124,15 +124,11 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="fragme
                         <span class="direct-chat-name pull-right">Sarah Bullock</span>
                         <span class="direct-chat-timestamp pull-left">23 Jan 6:10 pm</span>
                       </div>
-                      <!-- /.direct-chat-info -->
                       <img class="direct-chat-img" th:src="@{/resources/dist/img/user5-128x128.jpg}" alt="message user image">
-                      <!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
                         I would love to.
                       </div>
-                      <!-- /.direct-chat-text -->
                     </div>
-                    <!-- /.direct-chat-msg -->
 
                   </div>
                   <!--/.direct-chat-messages-->
@@ -142,9 +138,9 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="fragme
                 <div class="box-footer">
                   <form action="#" method="post">
                     <div class="input-group">
-                      <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                      <input id = "inputMessage" type="text" name="message" placeholder="Type Message ..." class="form-control">
                       <span class="input-group-btn">
-                            <button type="button" class="btn btn-warning btn-flat">Send</button>
+                            <button id="btnSend" type="button" class="btn btn-warning btn-flat">Send</button>
                           </span>
                     </div>
                   </form>
@@ -159,6 +155,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="fragme
 	<!-- jQuery 3 -->
 	<script th:src="@{/resources/bower_components/jquery/dist/jquery.min.js}"></script>
 	<script th:src="@{/resources/custom/js/review.js}"></script>
+	<script th:src="@{/resources/custom/js/chat.js}"></script>
   </div>
   <!-- /.content-wrapper -->
 </body>

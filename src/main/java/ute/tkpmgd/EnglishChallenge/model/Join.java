@@ -1,7 +1,12 @@
 package ute.tkpmgd.EnglishChallenge.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 /**
@@ -35,7 +40,9 @@ public class Join implements Serializable {
 	
 	private int timeRemain = 600000; // 10 minutes
 	
-	private int idQuestion = 1;
+	private int idQuestion1 = 1;
+	
+	private int idQuestion2 = 1;
 	
 	private String message1;
 	
@@ -128,12 +135,20 @@ public class Join implements Serializable {
 		this.timeRemain = timeRemain;
 	}
 
-	public int getIdQuestion() {
-		return idQuestion;
+	public int getIdQuestion1() {
+		return idQuestion1;
 	}
 
-	public void setIdQuestion(int idQuestion) {
-		this.idQuestion = idQuestion;
+	public void setIdQuestion1(int idQuestion1) {
+		this.idQuestion1 = idQuestion1;
+	}
+
+	public int getIdQuestion2() {
+		return idQuestion2;
+	}
+
+	public void setIdQuestion2(int idQuestion2) {
+		this.idQuestion2 = idQuestion2;
 	}
 
 	public String getMessage1() {

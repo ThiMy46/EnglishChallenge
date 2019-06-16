@@ -7,11 +7,10 @@ $(document).ready(function() {
 	}
 	
 	/*Get current time */
-	var urlParams = new URLSearchParams(window.location.search);
-	var idJoin = urlParams.get('id');
+	var idJoin = getUrlParameter('id');
 	
 	var idquestion;
-	var userId = $('#user-current').data('id');
+	var userId = getUrlParameter('userId');
 	var interval;
 
 	$.ajax({
@@ -19,7 +18,7 @@ $(document).ready(function() {
 		url : "/api/join/start/" +idJoin+ "?userId="+ userId
 	}).then(function(data) {
 		/*Load question*/
-		loadQuestion(idquestion, idJoin);
+		loadQuestion(idquestion, idJoin, userId);
 	});
 	
 	
@@ -32,17 +31,27 @@ $(document).ready(function() {
 	    	console.log(data);
 	    	//check question end
 	    	if(data.status == true){
-	    		result(idJoin);
+	    		$('#wait').modal('toggle');
+	    		var waitForRedirect = setInterval(function(){
+	    			$.ajax({
+	    		    	type : "GET",
+	    		    	url : "/api/join/review/" +idJoin
+	    		    }).then(function(data) {
+	    		    	if(data == true){
+	    		    		result(idJoin);
+	    		    	}
+	    		    });
+	    		}, 700);
 	    	}else{
 	    		//set id question
 	    		idquestion = data.nextQuestion;
 		    	//re-load question
-	    		loadQuestion(idquestion, idJoin);
+	    		loadQuestion(idquestion, idJoin, userId);
 	    	}
 	    });
 	});
 	
-	function loadQuestion(idquestion, idJoin){
+	function loadQuestion(idquestion, idJoin, userId){
 		$('#question').html('');
 		$('#answer1').text('');
 		$('#answer2').text('');
@@ -53,7 +62,7 @@ $(document).ready(function() {
 		
 		$.ajax({
 			type : "GET",
-			url : "/api/testquestion/" +idJoin
+			url : "/api/testquestion/" +idJoin+"?userId=" + userId
 		}).then(function(data) {
 			console.log(data);
 			//question
@@ -92,15 +101,21 @@ $(document).ready(function() {
 		clearInterval(interval);
 	}
 	function result(idJoin){
-		/*$.ajax({
-	    	type : "GET",
-	    	url : "/api/join/complete/" +idJoin
-	    }).then(function(data) {
-	    	console.log(data);
-	    	//result
-	    	
-	    });*/
-		location.href = '/reviewQuestion?id='+idJoin;
+		location.href = '/reviewQuestion?id='+idJoin+"&userId="+userId;
 	}
 
+	function getUrlParameter(sParam) {
+	    var sPageURL = window.location.search.substring(1),
+	        sURLVariables = sPageURL.split('&'),
+	        sParameterName,
+	        i;
+
+	    for (i = 0; i < sURLVariables.length; i++) {
+	        sParameterName = sURLVariables[i].split('=');
+
+	        if (sParameterName[0] === sParam) {
+	            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+	        }
+	    }
+	}
 });

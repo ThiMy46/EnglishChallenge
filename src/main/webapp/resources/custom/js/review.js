@@ -1,10 +1,11 @@
+var userId;
+var idJoin;
 $(document).ready(function() {
 	
 	/*Get current time */
-	var urlParams = new URLSearchParams(window.location.search);
-	var idJoin = urlParams.get('id');
+	idJoin = getUrlParameter('id');
 	
-	var userId = $('#user-current').data('id');
+	userId = getUrlParameter('userId');
 	
 	$.ajax({
     	type : "GET",
@@ -52,7 +53,6 @@ $(document).ready(function() {
     	}
     	$('#info_result').append(result);
     	
-    	console.log(data);
     	var question = '';
     	$.each(data.questionInfos, function(i, item) {
     		question += '<span><b>Câu hỏi '+item.id+'/10:</b></span>'+item.question+'<h5>Đáp án đúng : '+item.answer+'</h5>'
@@ -92,4 +92,18 @@ $(document).ready(function() {
 		return num;
 	}
 	
+	function getUrlParameter(sParam) {
+	    var sPageURL = window.location.search.substring(1),
+	        sURLVariables = sPageURL.split('&'),
+	        sParameterName,
+	        i;
+
+	    for (i = 0; i < sURLVariables.length; i++) {
+	        sParameterName = sURLVariables[i].split('=');
+
+	        if (sParameterName[0] === sParam) {
+	            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+	        }
+	    }
+	}
 });

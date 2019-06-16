@@ -78,4 +78,10 @@ public class JoinRestController {
 	public ResponseEntity<?> getMessage1(@PathVariable("id") int joinId, @RequestParam("userId") int userId) {
 		return ResponseEntity.ok(joinService.getMessage(joinId, userId));
 	}
+	
+	@GetMapping(value = "/review/{id}")
+	public ResponseEntity<?> redirectReview(@PathVariable("id") int joinId) {
+		Join join = joinRepository.getOne(joinId);
+		return ResponseEntity.ok(join.getTotal1() == IJoinService.MAX_QUESTIONS && join.getTotal1() == join.getTotal2());
+	}
 }
